@@ -1,0 +1,157 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, The LMCache Team
+# This file is distributed under the same license as the LMCache package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: LMCache \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-14 17:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/cli/kvcache.rst:2
+msgid "lmcache kvcache"
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:4
+msgid ""
+"The ``lmcache kvcache`` command manages KV cache state on a running "
+"LMCache server."
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:28
+msgid "clear"
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:30
+msgid ""
+"Clear all cached KV data in **L1 (CPU memory)** on the target LMCache "
+"server."
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:36
+msgid "**Example:**"
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:46
+msgid "**JSON output** (for scripting with ``jq``):"
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:58
+msgid "**Quiet mode** (exit code only, no output):"
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:67
+msgid "Options"
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:73
+msgid "Flag"
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:74
+msgid "Required"
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:75
+msgid "Description"
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:76
+msgid "``--url``"
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:77
+msgid "Yes"
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:78
+msgid "URL of the LMCache MP HTTP server (e.g. ``http://localhost:8000``)."
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:79
+msgid "``--format``"
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:80 ../../source/cli/kvcache.rst:83
+#: ../../source/cli/kvcache.rst:86
+msgid "No"
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:81
+msgid "Output format: ``terminal`` (default) or ``json``."
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:82
+msgid "``--output``"
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:84
+msgid "Save output to a file (uses the format chosen by ``--format``)."
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:85
+msgid "``-q`` / ``--quiet``"
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:87
+msgid "Suppress stdout. Useful in scripts where you only need the exit code."
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:90
+msgid "Exit Codes"
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:96
+msgid "Code"
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:97
+msgid "Meaning"
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:98
+msgid "``0``"
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:99
+msgid "Success."
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:100
+msgid "``1``"
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:101
+msgid "Error (connection failure, server error, bad arguments)."
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:104
+msgid "Common Patterns"
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:106
+msgid "**Handle temporary server unavailability:**"
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:108
+msgid ""
+"If the server is temporarily unreachable (e.g. due to network issue), the"
+" command fails with exit code 1. For persistent connectivity issues, use "
+"``lmcache ping`` to diagnose."
+msgstr ""
+
+#: ../../source/cli/kvcache.rst:120
+msgid "**Clear cache and capture JSON result:**"
+msgstr ""
+

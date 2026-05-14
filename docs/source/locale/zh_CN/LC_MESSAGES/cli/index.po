@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, The LMCache Team
+# This file is distributed under the same license as the LMCache package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: LMCache \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-14 17:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/cli/index.rst:2
+msgid "CLI Reference"
+msgstr ""
+
+#: ../../source/cli/index.rst:4
+msgid ""
+"The ``lmcache`` command-line interface provides tools for managing and "
+"inspecting LMCache servers."
+msgstr ""
+
+#: ../../source/cli/index.rst:11
+msgid ""
+"After installing LMCache, the ``lmcache`` command is available globally. "
+"Run ``lmcache -h`` to see all commands."
+msgstr ""
+
+#: ../../source/cli/index.rst:15
+msgid "Available Commands"
+msgstr ""
+
+#: ../../source/cli/index.rst:21
+msgid "Command"
+msgstr ""
+
+#: ../../source/cli/index.rst:22
+msgid "Description"
+msgstr ""
+
+#: ../../source/cli/index.rst:23
+msgid "``describe``"
+msgstr ""
+
+#: ../../source/cli/index.rst:24
+msgid "Show detailed status of a running LMCache service."
+msgstr ""
+
+#: ../../source/cli/index.rst:25
+msgid "``query``"
+msgstr ""
+
+#: ../../source/cli/index.rst:26
+msgid "Single-shot query interface for the serving engine."
+msgstr ""
+
+#: ../../source/cli/index.rst:27
+msgid "``ping``"
+msgstr ""
+
+#: ../../source/cli/index.rst:28
+msgid "Liveness check for LMCache or vLLM servers."
+msgstr ""
+
+#: ../../source/cli/index.rst:29
+msgid "``bench``"
+msgstr ""
+
+#: ../../source/cli/index.rst:30
+msgid ""
+"Run sustained performance benchmarks against an inference engine, or an "
+"end-to-end sanity test against an LMCache MP server."
+msgstr ""
+
+#: ../../source/cli/index.rst:32
+msgid "``kvcache``"
+msgstr ""
+
+#: ../../source/cli/index.rst:33
+msgid "Manage KV cache state (e.g. clear L1 cache)."
+msgstr ""
+
+#: ../../source/cli/index.rst:34
+msgid "``server``"
+msgstr ""
+
+#: ../../source/cli/index.rst:35
+msgid "Launch the LMCache server (ZMQ + HTTP)."
+msgstr ""
+
+#: ../../source/cli/index.rst:37
+msgid "For a comprehensive guide with examples, see :doc:`/getting_started/cli`."
+msgstr ""
+

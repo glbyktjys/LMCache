@@ -1,0 +1,353 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, The LMCache Team
+# This file is distributed under the same license as the LMCache package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: LMCache \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-14 17:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/cli/bench_kvcache.rst:2
+msgid "lmcache bench kvcache"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:4
+msgid ""
+"The ``lmcache bench kvcache`` command is an end-to-end sanity test for "
+"the LMCache Multi-Process (MP) cache server. It connects to a running "
+"server over ZMQ and exercises the full KV-cache data path for a sequence "
+"of synthetic requests, then optionally verifies per-chunk checksums "
+"through the HTTP API."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:14
+msgid ""
+"Unlike :ref:`lmcache bench engine <lmcache-bench-engine>`, this command "
+"does **not** require an inference engine. It only needs a running LMCache"
+" MP server (ZMQ + HTTP) and a GPU."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:20
+msgid "What it does"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:22
+msgid "For each sequence in ``[--start, --end)``, the tool runs two passes:"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:24
+msgid ""
+"**Cold pass** -- ``LOOKUP`` is expected to miss, so the generated KV "
+"tensors are ``STORE``\\ d on the server."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:26
+msgid ""
+"**Warm pass** -- ``LOOKUP`` is expected to hit; the tool issues "
+"``RETRIEVE`` and compares the retrieved KV chunks' checksums to the "
+"originals."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:30
+msgid "The full RPC path exercised is::"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:36
+msgid ""
+"When ``--url`` points to the server's HTTP endpoint, per-chunk checksums "
+"are additionally cross-checked against the server-side computation, so a "
+"mismatch between producer and consumer surfaces as a loud ``CHECKSUM "
+"MISMATCH`` log line."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:43
+msgid "Quick start"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:45
+msgid "Start the MP server in one terminal:"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:54
+msgid "Then in another terminal:"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:62
+msgid ""
+"By default the tool runs forever (``--end`` unset); stop it with "
+"``Ctrl-C`` at any time. Pass ``--end N`` for a bounded run."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:67
+msgid "Options"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:73
+msgid "Flag"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:74
+msgid "Default"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:75
+msgid "Description"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:76
+msgid "``--rpc-url URL``"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:77
+msgid "``tcp://localhost:5555``"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:78
+msgid "ZMQ endpoint of the MP cache server."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:79
+msgid "``--url URL``"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:80
+msgid "``http://localhost:8080``"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:81
+msgid ""
+"HTTP base URL of the server's checksum API. Used to verify per-chunk "
+"checksums end-to-end."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:83
+#, python-brace-format
+msgid "``--mode {gpu}``"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:84
+msgid "``gpu``"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:85
+msgid ""
+"Run mode. Only ``gpu`` is supported today; CPU mode is a planned follow-"
+"up."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:87
+msgid "``--num-tokens N``"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:88
+msgid "``512``"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:89
+msgid "Tokens per synthetic request."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:90
+msgid "``--num-blocks N``"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:91
+msgid "``1024``"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:92
+msgid "Number of paged blocks allocated on the GPU."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:93
+msgid "``--block-size N``"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:94
+msgid "``16``"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:95
+msgid "Tokens per paged block."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:96
+msgid "``--start N``"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:97 ../../source/cli/bench_kvcache.rst:178
+msgid "``0``"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:98
+msgid "First sequence number to run."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:99
+msgid "``--end N``"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:100
+msgid "*(unset)*"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:101
+msgid ""
+"Exclusive upper bound on sequence numbers. When omitted the loop runs "
+"forever."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:103
+msgid "``--interval SECS``"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:104
+msgid "``0.5``"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:105
+msgid "Delay between successive sub-passes."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:106
+msgid "``--kvcache-shape-spec SPEC``"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:107
+msgid "``(2,1024,16,8,128):float16:32``"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:108
+msgid "KV cache shape spec (see below)."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:112
+msgid "KV cache shape spec"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:114
+msgid ""
+"The ``--kvcache-shape-spec`` flag describes how KV tensors are laid out "
+"on the GPU. A spec is one or more groups separated by ``;``:"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:121
+msgid "Fields:"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:123
+msgid "``kv_size`` -- 2 for classical attention (separate K/V), 1 for MLA."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:124
+msgid "``NB`` -- number of paged blocks."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:125
+msgid "``BS`` -- block size (tokens per block)."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:126
+msgid "``NH`` -- number of attention heads per layer."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:127
+msgid "``HS`` -- head size (in elements)."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:128
+msgid ""
+"``dtype`` -- element dtype (e.g. ``float16``, ``bfloat16``, ``float32``, "
+"``uint8``). The full set matches the keys of ``DTYPE_MAP`` in "
+"``lmcache/v1/kv_layer_groups.py``."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:131
+msgid "``layers`` -- number of layers in this group."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:133
+msgid ""
+"Multi-group specs let you model heterogeneous layers (for example, MLA "
+"layers + classical attention layers in the same model):"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:142
+msgid ""
+"All groups must share the same ``NB`` and ``BS`` (this is a physical "
+"constraint of paged KV). Layer counts across groups sum to the total "
+"layer count registered with the server."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:146
+msgid ""
+"See ``parse_kvcache_shape_spec`` in ``lmcache/v1/kv_layer_groups.py`` for"
+" the authoritative parsing rules and validation errors."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:151
+msgid "Example output"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:165
+msgid ""
+"Any ``CHECKSUM MISMATCH``, ``ERROR``, or Python traceback in the log "
+"indicates a real problem worth investigating."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:170
+msgid "Exit codes"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:176
+msgid "Code"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:177
+msgid "Meaning"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:179
+msgid ""
+"Test loop completed (or was interrupted cleanly with Ctrl-C) with no "
+"checksum mismatches."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:181
+msgid "``1``"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:182
+msgid ""
+"Fatal error (for example, CUDA unavailable in ``--mode gpu``, server "
+"unreachable, or a checksum mismatch)."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:187
+msgid "See also"
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:189
+msgid ""
+":doc:`bench` -- ``lmcache bench engine`` for engine-side workload "
+"benchmarks."
+msgstr ""
+
+#: ../../source/cli/bench_kvcache.rst:191
+msgid ""
+":doc:`kvcache` -- ``lmcache kvcache`` for managing KV cache state on a "
+"running server (clear, etc.)."
+msgstr ""
+

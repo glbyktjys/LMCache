@@ -1,0 +1,238 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, The LMCache Team
+# This file is distributed under the same license as the LMCache package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: LMCache \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-14 17:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/getting_started/installation.rst:4
+msgid "Installation"
+msgstr ""
+
+#: ../../source/getting_started/installation.rst:6
+msgid ""
+"**Prerequisites:** Linux · Python 3.9–3.13 · NVIDIA GPU (compute 7.0+) · "
+"CUDA 12.1+ · `uv <https://astral.sh/uv>`_"
+msgstr ""
+
+#: ../../source/getting_started/installation.rst:9
+msgid "Install LMCache"
+msgstr ""
+
+#: ../../source/getting_started/installation.rst
+msgid "Python (pip / uv)"
+msgstr ""
+
+#: ../../source/getting_started/installation.rst
+msgid "Stable"
+msgstr ""
+
+#: ../../source/getting_started/installation.rst
+msgid "CUDA 12.9"
+msgstr ""
+
+#: ../../source/getting_started/installation.rst:31
+msgid ""
+"You're all set! You can now start using LMCache. For hands-on guides and "
+"more usage examples, see the :ref:`quickstart_examples` section."
+msgstr ""
+
+#: ../../source/getting_started/installation.rst
+msgid "CUDA 13.0"
+msgstr ""
+
+#: ../../source/getting_started/installation.rst:36
+msgid ""
+"The CUDA 13.0 wheel is published to a dedicated `GitHub Release "
+"<https://github.com/LMCache/LMCache/releases>`__ rather than PyPI."
+msgstr ""
+
+#: ../../source/getting_started/installation.rst:51
+msgid ""
+"``--extra-index-url https://download.pytorch.org/whl/cu130`` ensures the "
+"CUDA 13.0 build of PyTorch is resolved. Without it, pip may select a "
+"mismatched CUDA variant."
+msgstr ""
+
+#: ../../source/getting_started/installation.rst
+msgid "Nightly"
+msgstr ""
+
+#: ../../source/getting_started/installation.rst:56
+msgid ""
+"Nightly wheels are built from the latest ``dev`` branch each day at 07:30"
+" UTC and published to GitHub Releases. No version pinning required — "
+"``--pre`` picks the latest nightly automatically."
+msgstr ""
+
+#: ../../source/getting_started/installation.rst
+msgid "From Source"
+msgstr ""
+
+#: ../../source/getting_started/installation.rst:86
+msgid ""
+"``--no-build-isolation`` ensures the kernels are compiled against the "
+"same torch already installed in your environment, preventing undefined "
+"symbol errors at runtime."
+msgstr ""
+
+#: ../../source/getting_started/installation.rst
+msgid "CUDA"
+msgstr ""
+
+#: ../../source/getting_started/installation.rst
+msgid "ROCm"
+msgstr ""
+
+#: ../../source/getting_started/installation.rst
+msgid "Docker"
+msgstr ""
+
+#: ../../source/getting_started/installation.rst:170
+msgid "See :ref:`docker_deployment` for running the container and ROCm images."
+msgstr ""
+
+#: ../../source/getting_started/installation.rst
+msgid "CLI Only"
+msgstr ""
+
+#: ../../source/getting_started/installation.rst:174
+msgid ""
+"Lightweight CLI-only package for querying or benchmarking a remote "
+"LMCache server. No CUDA required, works on any OS."
+msgstr ""
+
+#: ../../source/getting_started/installation.rst:183
+msgid ""
+"``lmcache-cli`` and ``lmcache`` ship the same ``lmcache`` CLI command. Do"
+" not install both in the same environment."
+msgstr ""
+
+#: ../../source/getting_started/installation.rst:187
+msgid "Verify Installation"
+msgstr ""
+
+#: ../../source/getting_started/installation.rst:194
+msgid "Compatibility Matrix"
+msgstr ""
+
+#: ../../source/getting_started/installation.rst:196
+msgid ""
+"✅ compatible · ❌ API incompatible · 🕯️ torch mismatch (use ``--no-build-"
+"isolation``)"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "LMCache 0.4.2"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "LMCache 0.4.1"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "LMCache 0.3.15"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "LMCache 0.3.14"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "LMCache 0.3.13"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "LMCache 0.3.12"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "LMCache 0.3.11"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "LMCache 0.3.10"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "vLLM 0.18.0.x"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "✅"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "🕯️"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "vLLM 0.17.1.x"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "vLLM 0.17.0.x"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "vLLM 0.16.0.x"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "vLLM 0.15.1.x"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "vLLM 0.15.0.x"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "vLLM 0.14.1.x"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "vLLM 0.14.0.x"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "vLLM 0.13.0.x"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "vLLM 0.12.0.x"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "vLLM 0.11.2.x"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "vLLM 0.11.1.x"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "vLLM 0.11.0.x"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "vLLM 0.10.2.x"
+msgstr ""
+
+#: ../../source/getting_started/Installation_compatibility_matrix.csv:1
+msgid "vLLM 0.10.1.x"
+msgstr ""
+

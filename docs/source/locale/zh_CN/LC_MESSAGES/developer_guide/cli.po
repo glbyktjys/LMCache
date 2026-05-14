@@ -1,0 +1,116 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, The LMCache Team
+# This file is distributed under the same license as the LMCache package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: LMCache \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-14 17:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/developer_guide/cli.rst:2
+msgid "Extending the CLI"
+msgstr ""
+
+#: ../../source/developer_guide/cli.rst:4
+msgid "This guide explains how to add new subcommands to the ``lmcache`` CLI."
+msgstr ""
+
+#: ../../source/developer_guide/cli.rst:7
+msgid "Architecture Overview"
+msgstr ""
+
+#: ../../source/developer_guide/cli.rst:9
+msgid "The CLI uses explicit command registration:"
+msgstr ""
+
+#: ../../source/developer_guide/cli.rst:11
+msgid ""
+"Each command is a class inheriting from ``BaseCommand`` in "
+"``lmcache/cli/commands/base.py``."
+msgstr ""
+
+#: ../../source/developer_guide/cli.rst:13
+msgid ""
+"Commands are instantiated and listed in ``ALL_COMMANDS`` in "
+"``lmcache/cli/commands/__init__.py``."
+msgstr ""
+
+#: ../../source/developer_guide/cli.rst:15
+msgid ""
+"At startup, ``main.py`` iterates ``ALL_COMMANDS`` and calls "
+"``cmd.register(subparsers)`` to wire up argparse."
+msgstr ""
+
+#: ../../source/developer_guide/cli.rst:18
+msgid ""
+"``BaseCommand`` is an abstract class with four required methods. "
+"Forgetting any of them raises ``TypeError`` at instantiation time."
+msgstr ""
+
+#: ../../source/developer_guide/cli.rst:22
+msgid "File Layout"
+msgstr ""
+
+#: ../../source/developer_guide/cli.rst:49
+msgid "Step-by-Step: Adding a New Command"
+msgstr ""
+
+#: ../../source/developer_guide/cli.rst:51
+msgid "**Step 1.** Create ``lmcache/cli/commands/describe.py``:"
+msgstr ""
+
+#: ../../source/developer_guide/cli.rst:79
+msgid "**Step 2.** Register it in ``lmcache/cli/commands/__init__.py``:"
+msgstr ""
+
+#: ../../source/developer_guide/cli.rst:94
+msgid ""
+"That's it --- ``lmcache describe --url http://localhost:8000`` is now "
+"available."
+msgstr ""
+
+#: ../../source/developer_guide/cli.rst:98
+msgid "Using the Metrics System"
+msgstr ""
+
+#: ../../source/developer_guide/cli.rst:100
+msgid "The metrics system uses a **handler + formatter** architecture:"
+msgstr ""
+
+#: ../../source/developer_guide/cli.rst:102
+msgid "**Metrics** — the collector. Holds sections and entries."
+msgstr ""
+
+#: ../../source/developer_guide/cli.rst:103
+msgid "**Handler** — the destination (stdout, file, etc.)."
+msgstr ""
+
+#: ../../source/developer_guide/cli.rst:104
+msgid "**Formatter** — the rendering (ASCII table, JSON, etc.)."
+msgstr ""
+
+#: ../../source/developer_guide/cli.rst:106
+msgid ""
+"``BaseCommand.create_metrics()`` sets up default handlers automatically, "
+"so command authors just build metrics and call ``emit()``:"
+msgstr ""
+
+#: ../../source/developer_guide/cli.rst:128
+msgid ""
+"The ``--format`` and ``--output`` flags are added automatically by "
+"``BaseCommand.register()`` — subcommands do not need to add them "
+"manually."
+msgstr ""
+

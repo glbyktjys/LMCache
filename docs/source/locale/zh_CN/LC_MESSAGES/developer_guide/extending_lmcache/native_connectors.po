@@ -1,0 +1,729 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, The LMCache Team
+# This file is distributed under the same license as the LMCache package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: LMCache \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-14 17:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:2
+msgid "Adding Native Connectors"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:7
+msgid "Overview"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:9
+msgid ""
+"Native connectors are high-performance C++ storage backends that "
+"integrate with LMCache through pybind11. They work in **both** LMCache "
+"operating modes:"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:12
+msgid ""
+"**Non-MP mode** (single process): via ``ConnectorClientBase`` (asyncio "
+"integration)"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:13
+msgid ""
+"**MP mode** (multiprocess): via ``NativeConnectorL2Adapter`` (L2 adapter "
+"interface)"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:15
+msgid "Write the connector once, get both modes for free."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:17
+msgid ""
+"The framework lives in ``csrc/storage_backends/`` with the Redis RESP "
+"connector as the reference implementation."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:21
+msgid "Architecture"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:41
+msgid "**Design principles:**"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:43
+msgid ""
+"**GIL release** at the pybind layer for true concurrency between native "
+"threads"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:44
+msgid ""
+"**Batching with tiling**: work for a batched request is split evenly "
+"among threads"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:45
+msgid "**eventfd-based completions**: the kernel wakes Python -- no polling"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:46
+msgid ""
+"**Non-blocking submission**: submission queue / completion queue "
+"architecture"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:50
+msgid "Step 1: C++ Connector"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:52
+msgid ""
+"Create your connector directory (e.g., "
+"``csrc/storage_backends/mybackend/``) and inherit from "
+"``ConnectorBase<YourConnectionType>``. You need to override 4 required "
+"methods (and optionally ``do_single_delete`` to support eviction)."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:56
+msgid "**connector.h:**"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:127
+msgid "**What ConnectorBase gives you for free:**"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:129
+msgid "Worker thread pool with per-thread connections"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:130
+msgid "Submission queue (lock-free enqueue) and completion queue"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:131
+msgid "Automatic tiling: batch operations are split across workers"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:132
+msgid "eventfd signaling on completion (kernel wakes Python)"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:133
+msgid "Graceful shutdown (stop flag, drain, join)"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:136
+msgid ""
+"Always call ``start_workers()`` at the **end** of your derived "
+"constructor, after all member variables are initialized. Worker threads "
+"call ``create_connection()`` immediately, so the object must be fully "
+"constructed."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:140
+msgid ""
+"**Reference:** ``csrc/storage_backends/redis/connector.h`` and "
+"``connector.cpp``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:144
+msgid "Step 2: Pybind Module"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:146
+msgid ""
+"Use the ``LMCACHE_BIND_CONNECTOR_METHODS`` macro, which binds all 7 "
+"methods (``event_fd``, ``submit_batch_get/set/exists/delete``, "
+"``drain_completions``, ``close``) with proper GIL release and Python "
+"buffer protocol handling."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:168
+msgid "The pybind utilities automatically:"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:170
+msgid "Extract buffer pointers from Python ``memoryview`` objects under the GIL"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:171
+msgid "Release the GIL before calling into C++"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:172
+msgid ""
+"Convert C++ ``Completion`` structs to Python tuples ``(future_id, ok, "
+"error, result_bools)``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:174
+msgid "**Reference:** ``csrc/storage_backends/redis/pybind.cpp``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:178
+msgid "Step 3: Build System"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:180
+msgid ""
+"Register your C++ sources in ``setup.py`` alongside the existing Redis "
+"extension:"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:201
+msgid "Then rebuild:"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:209
+msgid "Step 4: Python Client (Non-MP Mode)"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:211
+msgid ""
+"Inherit from ``ConnectorClientBase`` which provides asyncio event loop "
+"integration, future management, and both sync and async methods."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:226
+msgid ""
+"This gives you ``batch_get``, ``batch_set``, ``batch_exists`` (async), "
+"and their synchronous variants, all with automatic eventfd-driven "
+"completion handling."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:229
+msgid ""
+"**Reference:** "
+"``lmcache/v1/storage_backend/native_clients/resp_client.py``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:233
+msgid "Step 5: L2 Adapter (MP Mode)"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:235
+msgid ""
+"To use your connector as an L2 adapter in MP mode, create a single Python"
+" module that defines the config class, factory function, and self-"
+"registers both. The ``NativeConnectorL2Adapter`` bridge handles all the "
+"complexity (eventfd demuxing, key serialization, locking)."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:240
+msgid "Create a new file in the L2 adapters package:"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:322
+msgid ""
+"The L2 adapter package uses ``pkgutil.iter_modules`` to auto-discover all"
+" modules in ``lmcache/v1/distributed/l2_adapters/``. Simply creating the "
+"file above is sufficient -- no changes to ``__init__.py`` or any other "
+"existing file are needed."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:326
+msgid "**Usage from the command line:**"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:336
+msgid "How NativeConnectorL2Adapter Bridges the Gap"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:338
+msgid ""
+"The C++ connector has 1 eventfd and mixed completions. MP mode's "
+"``L2AdapterInterface`` requires 3 separate eventfds and typed results. "
+"The bridge handles this transparently:"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:345
+msgid "L2 Adapter Method"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:346
+msgid "Native Call"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:347
+msgid "Extra Logic"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:348
+msgid "``submit_store_task(keys, objs)``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:349
+msgid "``submit_batch_set``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:350
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:356
+msgid "ObjectKey to string, MemoryObj to memoryview"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:351
+msgid "``submit_lookup_and_lock_task(keys)``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:352
+msgid "``submit_batch_exists``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:353
+msgid "client-side lock refcount"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:354
+msgid "``submit_load_task(keys, objs)``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:355
+msgid "``submit_batch_get``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:357
+msgid "``submit_unlock(keys)``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:358
+msgid "*(none)*"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:359
+msgid "client-side lock decrement"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:360
+msgid "``pop_completed_store_tasks()``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:361
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:364
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:367
+msgid "via ``drain_completions``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:362
+msgid "demux by op type"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:363
+msgid "``query_lookup_and_lock_result()``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:365
+msgid "exists results to Bitmap, apply locks"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:366
+msgid "``query_load_result()``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:368
+msgid "ok/fail to Bitmap"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:370
+msgid ""
+"A background demux thread polls the native eventfd, calls "
+"``drain_completions()``, looks up each ``future_id`` to determine its "
+"operation type, routes the result to the correct completion dict, and "
+"signals the corresponding Python eventfd."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:376
+msgid "Third-Party Native Connector Plugins (``native_plugin``)"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:380
+msgid ""
+"The steps above describe how to add a native connector **inside** the "
+"LMCache source tree. If you want to ship a connector as a **separate, "
+"pip-installable package** (e.g. a proprietary storage backend), use the "
+"``native_plugin`` L2 adapter type instead. It dynamically loads your "
+"connector at runtime -- no LMCache source modifications required."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:386
+msgid "How It Works"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:388
+msgid ""
+"The ``native_plugin`` adapter type loads a third-party **connector "
+"object** (pybind-wrapped C++ or pure Python) and wraps it with the built-"
+"in ``NativeConnectorL2Adapter`` bridge. This means you only need to "
+"implement the 6 connector methods -- the Python-side demux/lock bridging "
+"logic is reused from LMCache."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:393
+msgid "``plugin`` vs ``native_plugin``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:397
+msgid "Aspect"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:398
+msgid "``plugin``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:399
+msgid "``native_plugin``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:400
+msgid "What is loaded"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:401
+msgid "A full ``L2AdapterInterface`` subclass"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:402
+msgid "A **connector** object (lower level)"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:403
+msgid "Bridging logic"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:404
+msgid "Provided by the plugin itself"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:405
+msgid "Reused from ``NativeConnectorL2Adapter``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:406
+msgid "Third-party effort"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:407
+msgid "Must implement all abstract methods + 3 eventfds"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:408
+msgid "Only 6 connector methods"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:411
+msgid "Required Connector Interface"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:413
+msgid ""
+"The dynamically loaded connector instance must expose the following "
+"methods (identical to the pybind ``LMCACHE_BIND_CONNECTOR_METHODS`` "
+"contract):"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:443
+msgid ""
+"The factory validates the first 6 methods at creation time and raises "
+"``TypeError`` if any are missing. ``submit_batch_delete`` is **optional**"
+" -- if absent, the adapter's ``delete()`` method will be a no-op "
+"(eviction will not remove keys from the backend)."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:448
+msgid "Configuration"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:462
+msgid "``NativePluginL2AdapterConfig`` fields"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:466
+msgid "Field"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:467
+msgid "Type"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:468
+msgid "Required"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:469
+msgid "Description"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:470
+msgid "``module_path``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:471
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:475
+msgid "``str``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:472
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:476
+msgid "yes"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:473
+msgid "Dotted Python import path of the module containing the connector class."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:474
+msgid "``class_name``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:477
+msgid "Name of the connector class inside ``module_path``."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:478
+msgid "``adapter_params``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:479
+msgid "``dict``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:480
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:484
+msgid "no"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:481
+msgid "Forwarded as ``**kwargs`` to the connector class constructor."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:482
+msgid "``max_capacity_gb``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:483
+msgid "``float``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:485
+msgid ""
+"Maximum L2 storage capacity in GB for client-side usage tracking. "
+"Required for L2 eviction. Default 0 (disabled)."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:488
+msgid "Loading Flow"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:510
+msgid "Step-by-Step: Building an External Native Connector Plugin"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:512
+msgid ""
+"**Create a Python package** with a C++ pybind11 extension that inherits "
+"from ``ConnectorBase<T>`` (same base class as built-in connectors)."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:515
+msgid "Project layout:"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:531
+msgid ""
+"**Implement the C++ connector** inheriting from ``ConnectorBase<T>`` and "
+"override the 4 required methods (``create_connection``, "
+"``do_single_get``, ``do_single_set``, ``do_single_exists``) and "
+"optionally ``do_single_delete`` for eviction support."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:535
+msgid ""
+"**Create pybind11 bindings** using the ``LMCACHE_BIND_CONNECTOR_METHODS``"
+" macro:"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:553
+msgid ""
+"**Write a Python factory class** that selects the backend and returns the"
+" native connector instance:"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:568
+msgid "**Build and install** the package:"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:575
+msgid "**Configure LMCache** to use it:"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:590
+msgid "Reference Implementation"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:592
+msgid ""
+"See ``examples/lmc_external_native_connector/`` for a complete, pip-"
+"installable example connector plugin that demonstrates:"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:595
+msgid ""
+"C++ pybind11-wrapped connectors inheriting from ``ConnectorBase<T>`` "
+"(same as built-in Redis/FS)."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:597
+msgid ""
+"Two backends: filesystem (``ExampleFSConnector``) and in-memory "
+"(``ExampleMemoryConnector``), both in C++."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:599
+msgid ""
+"A thin Python factory class (``ExampleNativeConnector``) that selects the"
+" backend via a ``\"backend\"`` parameter."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:601
+msgid ""
+"Worker thread pool with eventfd notification (inherited from "
+"``ConnectorBase``)."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:602
+msgid "Build via ``pip install -e .`` using pybind11 + setuptools."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:606
+msgid "Checklist"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:608
+msgid "Use this checklist when adding a new native connector:"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:610
+msgid ""
+"C++ connector inheriting ``ConnectorBase<T>`` with 4 required + 1 "
+"optional (``do_single_delete``) method overrides"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:611
+msgid "Pybind module using ``LMCACHE_BIND_CONNECTOR_METHODS``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:612
+msgid "``setup.py`` entry for the new ``CppExtension``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:613
+msgid "Python client inheriting ``ConnectorClientBase`` (non-MP mode)"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:614
+msgid "L2 adapter module with config class + factory self-registration (MP mode)"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:615
+msgid ""
+"Unit tests (see "
+"``tests/v1/distributed/test_native_connector_l2_adapter.py``)"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:616
+msgid "Rebuild with ``pip install -e .`` and verify both modes work"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:618
+msgid "For **external** native connector plugins (``native_plugin``):"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:620
+msgid "Separate pip-installable package with C++ pybind11 extension"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:621
+msgid ""
+"Connector class exposing the 6 required methods (+ optional "
+"``submit_batch_delete`` for eviction)"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:622
+msgid "Python factory class for backend selection"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:623
+msgid "``pip install -e .`` and configure via ``--l2-adapter`` JSON"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:624
+msgid "Unit tests (see ``examples/lmc_external_native_connector/tests/``)"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:628
+msgid "Additional Resources"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:630
+msgid "Framework source: ``csrc/storage_backends/``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:631
+msgid "``ConnectorBase`` template: ``csrc/storage_backends/connector_base.h``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:632
+msgid ""
+"``IStorageConnector`` interface: "
+"``csrc/storage_backends/connector_interface.h``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:633
+msgid "Pybind utilities: ``csrc/storage_backends/connector_pybind_utils.h``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:634
+msgid "Redis reference implementation: ``csrc/storage_backends/redis/``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:635
+msgid "Architecture README: ``csrc/storage_backends/README.md``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:636
+msgid ""
+"External native connector example: "
+"``examples/lmc_external_native_connector/``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:638
+msgid ""
+"Native plugin adapter source: "
+"``lmcache/v1/distributed/l2_adapters/native_connector_l2_adapter.py``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:640
+msgid ""
+"Design document: "
+"``lmcache/v1/distributed/l2_adapters/design_docs/plugin.md``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/native_connectors.rst:642
+msgid ""
+"RESP backend user guide: :doc:`RESP (Native Redis/Valkey) "
+"<../../kv_cache/storage_backends/resp>`"
+msgstr ""
+

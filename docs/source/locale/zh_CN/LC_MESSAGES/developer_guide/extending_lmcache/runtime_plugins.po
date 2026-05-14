@@ -1,0 +1,185 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, The LMCache Team
+# This file is distributed under the same license as the LMCache package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: LMCache \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-14 17:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:2
+msgid "Runtime Plugins"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:4
+msgid ""
+"The LMCache runtime plugin system provides the ability to extend "
+"functionality by running custom scripts alongside LMCache processes. "
+"Plugins can be written in Python and Bash for now, and are managed by the"
+" ``RuntimePluginLauncher`` class."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:7
+msgid "Key Use Cases"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:8
+msgid "Start metric reporters for centralized monitoring"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:9
+msgid "Implement log reporters for log collection systems"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:10
+msgid "Report process-level metrics to alerting systems"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:11
+msgid "Implement health checks and service discovery"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:12
+msgid "Custom cache management operations"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:15
+msgid "Configuration"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:16
+msgid ""
+"Runtime plugins are configured through environment variables and "
+"configuration files:"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:18
+msgid ""
+"Environment Variables: - ``LMCACHE_RUNTIME_PLUGIN_ROLE``: Process role "
+"(e.g., ``SCHEDULER``, ``WORKER``) - ``LMCACHE_RUNTIME_PLUGIN_CONFIG``: "
+"JSON string containing plugin configuration - "
+"``LMCACHE_RUNTIME_PLUGIN_WORKER_ID``: Current worker ID - "
+"``LMCACHE_RUNTIME_PLUGIN_WORKER_COUNT``: Total worker count in cluster"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:24
+msgid "Configuration File (``lmcache.yaml``):"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:35
+msgid "Runtime Plugin Naming Convention"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:36
+msgid "Plugin filenames determine execution targets:"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:38
+msgid ""
+"Role-Specific Plugins: - Format: "
+"``<ROLE>[_<WORKER_ID>][_<DESCRIPTION>].<EXTENSION>`` - Examples:"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:42
+msgid "``scheduler_foo_plugin.py``: Runs only on ``SCHEDULER``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:43
+msgid "``worker_0_test.sh``: Runs only on worker ID 0"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:44
+msgid "``all_plugin.sh``: Runs on all workers"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:46
+msgid ""
+"Notes: - Role names are case-insensitive - Worker ID must be numeric when"
+" specified - To target a specific worker ID, the filename must have at "
+"least three parts separated by underscores (e.g., "
+"`worker_<ID>_<DESCRIPTION>.ext`). A file named `worker_<DESCRIPTION>.ext`"
+" will run on all workers."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:52
+msgid "Execution Model"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:53
+msgid ""
+"**Interpreter Detection**: - Uses shebang line (e.g., "
+"``#!/opt/venv/bin/python``) - Fallback interpreters:"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:57
+msgid "``.py`` → ``python``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:58
+msgid "``.sh`` → ``bash``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:60
+msgid ""
+"**Output Handling**: - Stdout/stderr captured continuously - Logged with "
+"plugin name prefix"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:64
+msgid ""
+"**Process Management**: - Launched as subprocesses - Terminated when "
+"parent process exits"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:69
+msgid "Example Runtime Plugins"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:70
+msgid "Python Plugin (``scheduler_foo_plugin.py``):"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:76
+msgid "Bash Plugin (``all_plugin.sh``):"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:83
+msgid "Best Practices"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:84
+msgid "Keep runtime plugins lightweight and efficient"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:85
+msgid "Use descriptive naming conventions"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:86
+msgid "Implement graceful error handling"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:87
+msgid "Include shebang for portability"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:88
+msgid "Validate configuration inputs"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/runtime_plugins.rst:89
+msgid "Add timeout mechanisms for long operations"
+msgstr ""
+

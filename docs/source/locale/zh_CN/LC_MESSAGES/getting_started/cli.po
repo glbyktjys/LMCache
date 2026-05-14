@@ -1,0 +1,478 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, The LMCache Team
+# This file is distributed under the same license as the LMCache package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: LMCache \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-14 17:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/getting_started/cli.rst:2
+msgid "CLI Reference"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:4
+msgid ""
+"LMCache provides a unified ``lmcache`` command-line interface for "
+"interacting with KV cache servers, running benchmarks, and inspecting "
+"cache state."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:12
+msgid "Installation"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:14
+msgid "The ``lmcache`` CLI is available in two packages:"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:20
+msgid "Package"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:21
+msgid "Install"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:22
+msgid "When to use"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:23
+msgid "``lmcache``"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:24
+msgid "``pip install lmcache``"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:25
+msgid "Full install: server, CLI, and CUDA extensions. Requires Linux + GPU."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:26
+msgid "``lmcache-cli``"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:27
+msgid "``pip install lmcache-cli``"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:28
+msgid "CLI only: query, ping, bench, describe. No GPU required, any OS."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:32
+msgid ""
+"Do not install both packages in the same environment — they both provide "
+"the ``lmcache`` entry point."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:36
+msgid "Quick Start"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:38
+msgid "After installing LMCache, the ``lmcache`` command is available:"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:63
+msgid "Available Commands"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:69
+msgid "Command"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:70
+#: ../../source/getting_started/cli.rst:193
+#: ../../source/getting_started/cli.rst:336
+msgid "Description"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:71
+msgid "``describe``"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:72
+msgid ""
+"Show detailed status of a running LMCache service, including cache "
+"health, L1 storage, registered models, and L2 adapters."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:74
+#: ../../source/getting_started/cli.rst:280
+msgid "``query``"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:75
+msgid ""
+"Single-shot query interface for both the serving engine and KV cache "
+"worker."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:76
+msgid "``server``"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:77
+msgid "Launch the LMCache server (ZMQ + HTTP). Requires full ``lmcache`` install."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:78
+msgid "``ping``"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:79
+msgid "Liveness check for LMCache or vLLM servers."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:80
+msgid "``bench``"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:81
+msgid "Run sustained performance benchmarks against an inference engine."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:82
+#: ../../source/getting_started/cli.rst:194
+msgid "``kvcache``"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:83
+msgid "Manage KV cache state (e.g. clear L1 cache) on a running server."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:87
+msgid "``bench`` — Engine Benchmarking"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:89
+msgid ""
+"Run sustained benchmarks against an inference engine with multiple "
+"workload types:"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:121
+msgid "Five workloads are available:"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:123
+msgid ""
+"**long-doc-qa** -- repeated Q&A over long documents (tests KV cache "
+"reuse)."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:124
+msgid "**multi-round-chat** -- multi-turn chat with stateful sessions."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:125
+msgid ""
+"**long-doc-permutator** -- permutations of context documents (blended "
+"cache reuse stress test)."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:127
+msgid ""
+"**prefix-suffix-tuner** -- two-pass sequential workload demonstrating "
+"tiered KV-cache reuse (L0/L1/L2)."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:129
+msgid "**random-prefill** -- prefill-only requests fired simultaneously."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:131
+msgid ""
+"See :doc:`/cli/bench` for full documentation including all workload "
+"options, interactive mode details, and config file format."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:136
+msgid "``describe`` — Service Status Dashboard"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:138
+msgid "Inspect the state of a running LMCache KV cache server:"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:177
+msgid "The output shows:"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:179
+msgid "**Overview** — health status, engine type, chunk size."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:180
+msgid "**L1 storage** — capacity, usage, eviction policy, cached object count."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:181
+msgid ""
+"**Registered models** — per-model KV cache layout including the GPU KV "
+"tensor shape (symbolic and concrete), attention backend, and layer "
+"details."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:183
+msgid "**L2 adapters** — type, health, backend, stored objects, and utilization."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:186
+msgid "Arguments"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:192
+#: ../../source/getting_started/cli.rst:335
+msgid "Flag"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:195
+msgid "Target to describe (currently only ``kvcache`` is supported)."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:196
+#: ../../source/getting_started/cli.rst:339
+msgid "``--url``"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:197
+msgid "LMCache HTTP server URL (default: ``http://localhost:8080``)."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:198
+#: ../../source/getting_started/cli.rst:342
+msgid "``--format``"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:199
+#: ../../source/getting_started/cli.rst:343
+msgid "Output format: ``terminal`` (default) or ``json``."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:200
+#: ../../source/getting_started/cli.rst:344
+msgid "``--output PATH``"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:201
+#: ../../source/getting_started/cli.rst:345
+msgid "Save metrics to a file (format follows ``--format``)."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:204
+#: ../../source/getting_started/cli.rst:395
+msgid "JSON Output"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:206
+msgid ""
+"Use ``--format json`` for machine-readable output. Models and L2 adapters"
+" are collected into lists for easy programmatic access:"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:256
+msgid "GPU KV Shape Abbreviations"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:258
+msgid "The ``gpu_kv_shape`` field uses short names from the ``GPUKVFormat`` enum:"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:264
+msgid "Abbrev"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:265
+#: ../../source/getting_started/cli.rst:357
+msgid "Meaning"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:266
+msgid "NB"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:267
+msgid "num_blocks"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:268
+msgid "NL"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:269
+msgid "num_layers"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:270
+msgid "BS"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:271
+msgid "block_size"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:272
+msgid "NH"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:273
+msgid "num_heads"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:274
+msgid "HS"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:275
+msgid "head_size"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:276
+msgid "PBS"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:277
+msgid "page_buffer_size (NB × BS)"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:282
+#, python-brace-format
+msgid ""
+"The ``query engine`` subcommand sends one request to the engine API and "
+"reports metrics. ``--prompt`` supports placeholders: ``{lmcache}`` loads "
+"``lmcache/cli/documents/lmcache.txt``, and custom documents can be passed"
+" with ``--documents NAME=PATH``. The prompt token count is taken directly"
+" from the usage data reported by the engine (``stream_options: "
+"{include_usage: true}``)."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:309
+msgid "``ping`` — Liveness Check"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:311
+msgid ""
+"Check whether an LMCache KV cache server or a vLLM serving engine is "
+"reachable:"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:329
+msgid "Options"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:337
+msgid "``kvcache`` | ``engine``"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:338
+msgid "Target to ping (positional, required)."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:340
+msgid ""
+"Server URL. Defaults to ``http://localhost:8080`` for ``kvcache``, "
+"``http://localhost:8000`` for ``engine``."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:346
+msgid "``-q`` / ``--quiet``"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:347
+msgid "Suppress stdout output. Exit code only."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:350
+msgid "Exit Codes"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:356
+msgid "Code"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:358
+msgid "``0``"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:359
+msgid "Server is reachable (HTTP 200)."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:360
+msgid "``1``"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:361
+msgid "Connection failure or non-200 response."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:364
+msgid "``kvcache`` — KV Cache Management"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:366
+msgid ""
+"Manage KV cache state on a running LMCache server. See "
+":doc:`/cli/kvcache` for full documentation including examples, options, "
+"and common patterns."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:369
+msgid "Quick example:"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:378
+msgid "Metrics Output"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:380
+msgid "All commands that produce metrics support two output formats:"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:383
+msgid "Terminal Output"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:385
+msgid "Human-readable ASCII table:"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:397
+msgid ""
+"Machine-readable output with structured keys, available via ``--format "
+"json`` (stdout) or ``--output`` (file):"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:414
+msgid ""
+"The terminal output uses human-readable labels (e.g., ``\"Round trip time"
+" (ms)\"``), while the JSON output uses machine-readable keys (e.g., "
+"``\"round_trip_time_ms\"``)."
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:419
+msgid "Adding New Commands"
+msgstr ""
+
+#: ../../source/getting_started/cli.rst:421
+msgid ""
+"New CLI subcommands can be added by creating a ``BaseCommand`` subclass "
+"and registering it. See :doc:`/developer_guide/cli` for details."
+msgstr ""
+

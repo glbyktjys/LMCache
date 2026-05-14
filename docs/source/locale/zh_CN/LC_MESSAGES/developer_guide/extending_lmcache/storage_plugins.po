@@ -1,0 +1,379 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, The LMCache Team
+# This file is distributed under the same license as the LMCache package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: LMCache \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-14 17:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:2
+msgid "Storage Plugins"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:4
+msgid ""
+"LMCache supports out of the box storage backends like Mooncake, S3 and "
+"NIXL. The LMCache storage plugin system provides the ability to add "
+"custom storage backends through dynamic loading or plug and play "
+"capability. In other words, extending cache storage capabilities without "
+"modifying core code."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:8
+msgid "Backend Definition Requirements"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:9
+msgid "Inherit from ``StoragePluginInterface``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:10
+msgid ""
+"Implement all the abstract methods of the parent interface of "
+"``StoragePluginInterface``- ``StorageBackendInterface``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:11
+msgid "Package as an installable Python module"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:15
+msgid ""
+"The interface constructor is the instantiation contract that the LMCache "
+"loading system will use when loading custom storage backends. If you wish"
+" to implement a constructor, it should have the same parameter signature "
+"and call the interface constructor."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:19
+msgid "How to Integrate the Backend with LMCache"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:20
+msgid "Install your backend package in the LMCache environment"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:21
+msgid ""
+"Add ``storage_plugins`` and its related ``module_path`` and "
+"``class_name`` to ``extra_config`` section of LMCache configuration as "
+"follows:"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:33
+msgid "An example configuration for a logging backend is as follows:"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:47
+msgid ""
+"Storage backends are initialized in order during LMCache startup - "
+"earlier backends have higher priority during cache lookups"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:48
+msgid ""
+"``storage_plugin.<backend_name>`` distinguishes the different dynamic "
+"loaded backends"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:51
+msgid "Backend Implementation Example"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:52
+msgid ""
+"A sample custom backend implementation can be viewed at "
+"https://github.com/opendataio/lmc_external_log_backend/"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:56
+msgid "MP-Mode L2 Adapter Plugins (``plugin``)"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:60
+msgid ""
+"The storage plugin system described above applies to **non-MP mode** "
+"(single-process). For **MP mode** (multiprocess), LMCache provides the "
+"``plugin`` L2 adapter type, which dynamically loads a third-party "
+"``L2AdapterInterface`` implementation at runtime."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:65
+msgid "Overview"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:67
+msgid ""
+"The ``plugin`` adapter type lets you ship a full L2 adapter as a "
+"**separate, pip-installable package**. At startup, LMCache imports your "
+"module, instantiates your adapter class, and uses it just like a built-in"
+" adapter -- no LMCache source modifications required."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:73
+msgid ""
+"If your storage backend is a native C++ connector (pybind-wrapped), "
+"consider using the ``native_plugin`` type instead (see "
+":doc:`native_connectors`). It reuses the built-in bridging logic so you "
+"only need to implement 6 connector methods rather than the full "
+"``L2AdapterInterface``."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:79
+msgid "Configuration"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:93
+msgid "``PluginL2AdapterConfig`` fields"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:97
+msgid "Field"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:98
+msgid "Type"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:99
+msgid "Required"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:100
+msgid "Description"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:101
+msgid "``module_path``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:102
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:106
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:114
+msgid "``str``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:103
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:107
+msgid "yes"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:104
+msgid "Dotted Python import path of the module containing the adapter class."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:105
+msgid "``class_name``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:108
+msgid ""
+"Name of the class inside ``module_path`` that implements "
+"``L2AdapterInterface``."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:109
+msgid "``adapter_params``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:110
+msgid "``dict``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:111
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:115
+msgid "no"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:112
+msgid ""
+"Forwarded to the adapter class constructor (as a typed config or raw "
+"dict)."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:113
+msgid "``config_class_name``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:116
+msgid "Explicit config class name; when omitted the factory auto-discovers it."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:119
+msgid "Config Class Auto-Discovery"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:121
+msgid ""
+"The factory automatically resolves the adapter's config class using the "
+"following priority chain (first match wins):"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:124
+msgid "**Explicit** ``config_class_name`` field in JSON config."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:125
+msgid ""
+"**Convention**: adapter class name + ``\"Config\"`` suffix (e.g. "
+"``MyL2Adapter`` looks for ``MyL2AdapterConfig``)."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:127
+msgid ""
+"**Attribute**: ``config_class_name`` attribute on the adapter class "
+"itself."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:128
+msgid "**Fallback**: no config class found -- pass raw ``adapter_params`` dict."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:130
+msgid ""
+"Each candidate is looked up in the loaded module and validated as an "
+"``L2AdapterConfigBase`` subclass. This means most plugins that follow the"
+" naming convention will **automatically** receive a typed config instance"
+" without any extra configuration."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:135
+msgid "Plugin Contract"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:137
+msgid "A plugin adapter class **must**:"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:139
+msgid ""
+"Subclass ``L2AdapterInterface`` from "
+"``lmcache.v1.distributed.l2_adapters.base``."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:140
+msgid ""
+"Implement all abstract methods: ``submit_store_task``, "
+"``pop_completed_store_tasks``, ``submit_lookup_and_lock_task``, "
+"``query_lookup_and_lock_result``, ``submit_unlock``, "
+"``submit_load_task``, ``query_load_result``, ``close``, and all three "
+"event-fd getters."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:143
+msgid ""
+"Provide **three distinct event fds** (store / lookup / load). The "
+"controllers build ``fd -> adapter`` maps; duplicates will misroute "
+"events."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:145
+msgid ""
+"Be **thread-safe**: ``StoreController`` and ``PrefetchController`` call "
+"adapter methods from different threads concurrently."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:147
+msgid "Accept ``**kwargs`` in ``__init__`` to stay forward-compatible."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:149
+msgid "A plugin adapter class **should**:"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:151
+msgid ""
+"Create its own asyncio event loop and background thread if it needs async"
+" I/O."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:152
+msgid ""
+"Use ``create_event_notifier()`` from ``lmcache.v1.platform`` for the "
+"three event fds (cross-platform: ``os.eventfd`` on Linux, ``os.pipe`` "
+"fallback elsewhere)."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:154
+msgid "Clean up all resources (event fds, threads, connections) in ``close()``."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:157
+msgid "Loading Flow"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:190
+msgid "Minimal Example"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:220
+msgid "Launch via CLI:"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:232
+msgid "Reference Implementation"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:234
+msgid ""
+"See ``examples/lmc_external_l2_adapter/`` for a complete, pip-installable"
+" example plugin (``InMemoryL2Adapter``) that demonstrates:"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:237
+msgid "FIFO eviction with configurable capacity."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:238
+msgid "Simulated bandwidth delay for realistic testing."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:239
+msgid "Background asyncio event loop with proper shutdown."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:240
+msgid ""
+"Full test suite covering store, lookup, load, batch operations, and "
+"eviction behavior."
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:243
+msgid "Additional Resources"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:245
+msgid ""
+"Plugin adapter source: "
+"``lmcache/v1/distributed/l2_adapters/plugin_l2_adapter.py``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:246
+msgid ""
+"Native plugin adapter: "
+"``lmcache/v1/distributed/l2_adapters/native_connector_l2_adapter.py``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:247
+msgid ""
+"Design document: "
+"``lmcache/v1/distributed/l2_adapters/design_docs/plugin.md``"
+msgstr ""
+
+#: ../../source/developer_guide/extending_lmcache/storage_plugins.rst:248
+msgid "L2 adapter base interface: ``lmcache/v1/distributed/l2_adapters/base.py``"
+msgstr ""
+

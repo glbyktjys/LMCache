@@ -1,0 +1,142 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, The LMCache Team
+# This file is distributed under the same license as the LMCache package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: LMCache \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-14 17:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/getting_started/faq.rst:2
+msgid "FAQ"
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:5
+msgid ""
+"What are the KV cache sizes for popular models? And why is LMCache "
+"important?"
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:7
+msgid ""
+"You can calculate KV cache sizes using our :doc:`KV cache calculator "
+"<kv_cache_calculator>`. We also provide a reference table below with KV "
+"cache information for some popular models."
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:9
+msgid ""
+"As shown in the table, after loading Qwen/Qwen3-32B for example, there is"
+" only enough space in the spare GPU RAM to hold 275,760 tokens for KV "
+"caches. This supports only 6.73 concurrent users if each prompt is 40,960"
+" tokens long. Once this capacity is exceeded, the KV cache must be "
+"evicted, and when the same user returns, their request needs to be re-"
+"prefilled, which takes significantly longer."
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:11
+msgid ""
+"**LMCache is designed to extend this virtual memory capacity**, enabling "
+"you to store more KV caches and avoid costly re-prefilling operations."
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:13
+msgid "**KV Cache Sizes for Popular Models**"
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:19
+msgid "Model"
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:20
+msgid "KV Cache Size per 1000 tokens"
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:21
+msgid "Spare GPU RAM for KV cache"
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:22
+msgid "Context length"
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:23
+msgid "Number of full-length prompts that can be stored in GPU"
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:24
+msgid "Qwen/Qwen3-8B"
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:25
+msgid "0.1373 GB"
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:26
+msgid "50.32 GB (or 366,400 tokens)"
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:27
+#: ../../source/getting_started/faq.rst:32
+msgid "40,960 tokens"
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:28
+msgid "8.95x"
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:29
+msgid "Qwen/Qwen3-32B (tp=2 on H100)"
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:30
+msgid "0.2441 GB"
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:31
+msgid "33.66 GB × 2 (or 275,760 tokens)"
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:33
+msgid "6.73x"
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:34
+msgid "meta-llama/Llama-3.1-70B (tp=4 on H100)"
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:35
+msgid "0.3052 GB"
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:36
+msgid "32.06 GB × 4 (or 420,208 tokens)"
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:37
+msgid "131,072 tokens"
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:38
+msgid "3.21x"
+msgstr ""
+
+#: ../../source/getting_started/faq.rst:41
+msgid ""
+"You may also find this `VRAM Calculator <https://apxml.com/tools/vram-"
+"calculator>`_ useful for calculating the estimated spare GPU RAM for "
+"different models and configurations."
+msgstr ""
+

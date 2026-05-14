@@ -1,0 +1,191 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, The LMCache Team
+# This file is distributed under the same license as the LMCache package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: LMCache \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-14 17:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/controller/freeze_mode.rst:2
+msgid "Freeze Mode"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:5
+msgid "Overview"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:7
+msgid ""
+"Freeze Mode is a safety mechanism in LMCache Controller designed to "
+"prevent data inconsistency and potential data loss during critical system"
+" events. When the controller detects severe state inconsistencies or is "
+"undergoing restart/recovery, it can activate Freeze Mode to temporarily "
+"restrict certain operations."
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:10
+msgid "Motivation"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:12
+msgid "The primary motivations for Freeze Mode are:"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:14
+msgid ""
+"**Controller Failure Recovery** - When the controller crashes and "
+"restarts, it may need to perform a full synchronization with workers - "
+"During this sync period, the system state may be incomplete or "
+"inconsistent"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:18
+msgid ""
+"**State Inconsistency Detection** - When severe state mismatches are "
+"detected between the controller and workers - This could happen due to "
+"network issues, worker failures, or unexpected system behavior"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:22
+msgid ""
+"**Full Synchronization Safety** - During full sync operations triggered "
+"by the above events - To prevent operations that could cause eviction or "
+"admission events while state is being rebuilt"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:27
+msgid "Purpose"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:29
+msgid "When Freeze Mode is activated:"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:31
+msgid "**All operations that could generate evict/admit events are disabled**"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:32
+msgid "Only read operations and basic queries are allowed"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:33
+msgid ""
+"The system essentially enters a \"read-only\" state for cache management "
+"operations"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:34
+msgid "This prevents data corruption or loss during the recovery/sync process"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:37
+msgid "Current Implementation Status"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:39
+msgid "**Currently Implemented:**"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:41
+msgid ""
+"**Freeze Mode Mechanism** - StorageManager supports freeze mode - When "
+"frozen, only LocalCPUBackend is used for retrieval operations - Other "
+"storage backends are temporarily excluded from active use"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:46
+msgid ""
+"**API Endpoints** - Freeze mode can be toggled via controller API - "
+"Status can be queried to check if system is in freeze mode"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:50
+msgid "**Not Yet Implemented:**"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:52
+msgid ""
+"**Automatic Triggering** - Controller does not yet automatically trigger "
+"freeze mode - Manual activation via API is currently required"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:56
+msgid ""
+"**Full Sync Integration** - Full synchronization process that would "
+"trigger freeze mode is not implemented - Controller restart detection and"
+" automatic freeze mode activation not yet developed"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:60
+msgid ""
+"**Recovery Completion** - Automatic unfreeze after sync completion not "
+"yet implemented - Manual intervention currently required to exit freeze "
+"mode"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:65
+msgid "Usage"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:67
+msgid "**Manual Activation/Deactivation:**"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:69
+msgid "Freeze mode can be manually controlled through the Controller API:"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:82
+msgid "**System Behavior in Freeze Mode:**"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:84
+msgid "Cache retrieval operations continue to work"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:85
+msgid "Only LocalCPUBackend is used for all retrievals"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:86
+msgid "Cache admission/eviction operations are blocked"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:87
+msgid "Write operations to storage backends are prevented"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:88
+msgid "Monitoring and health checks continue normally"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:91
+msgid "Related Documentation"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:93
+msgid ":doc:`index` - Controller WebUI overview"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:94
+msgid ":doc:`../api_reference/configurations` - API and configuration reference"
+msgstr ""
+
+#: ../../source/controller/freeze_mode.rst:95
+msgid ":doc:`../storage_backend/index` - Storage backend architecture"
+msgstr ""
+

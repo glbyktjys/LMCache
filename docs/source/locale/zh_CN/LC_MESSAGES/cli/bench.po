@@ -1,0 +1,882 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, The LMCache Team
+# This file is distributed under the same license as the LMCache package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: LMCache \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-14 17:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/cli/bench.rst:4
+msgid "lmcache bench engine"
+msgstr ""
+
+#: ../../source/cli/bench.rst:6
+msgid ""
+"The ``lmcache bench engine`` command runs sustained performance "
+"benchmarks against an inference engine (e.g., vLLM). It supports multiple"
+" workload types that exercise different caching patterns and reports "
+"TTFT, decoding speed, and throughput metrics."
+msgstr ""
+
+#: ../../source/cli/bench.rst:15
+msgid "There are three ways to configure the benchmark:"
+msgstr ""
+
+#: ../../source/cli/bench.rst:17
+msgid "**CLI arguments** -- pass all options on the command line."
+msgstr ""
+
+#: ../../source/cli/bench.rst:18
+msgid ""
+"**Interactive mode** -- run ``lmcache bench engine`` without required "
+"args and follow the step-by-step prompts."
+msgstr ""
+
+#: ../../source/cli/bench.rst:20
+msgid ""
+"**Config file** -- save a configuration to JSON and replay it with "
+"``--config``."
+msgstr ""
+
+#: ../../source/cli/bench.rst:25
+msgid "Quick Start"
+msgstr ""
+
+#: ../../source/cli/bench.rst:27
+msgid "**Minimal (with all required arguments):**"
+msgstr ""
+
+#: ../../source/cli/bench.rst:36
+msgid "**Interactive mode (guided setup):**"
+msgstr ""
+
+#: ../../source/cli/bench.rst:42
+msgid ""
+"The interactive mode walks you through each required setting, then asks "
+"whether you want to configure general and workload-specific options or "
+"use defaults."
+msgstr ""
+
+#: ../../source/cli/bench.rst:46
+msgid "**From a saved config file:**"
+msgstr ""
+
+#: ../../source/cli/bench.rst:53
+msgid ""
+"Config files contain benchmark parameters (workload, KV cache settings, "
+"etc.) but not the engine URL, so you can reuse the same config against "
+"different engines."
+msgstr ""
+
+#: ../../source/cli/bench.rst:57
+msgid "**Export a config without running the benchmark:**"
+msgstr ""
+
+#: ../../source/cli/bench.rst:67
+msgid ""
+"This resolves all auto-detected values (model name, tokens per GB) and "
+"saves them to a portable JSON file that works without an LMCache server."
+msgstr ""
+
+#: ../../source/cli/bench.rst:70
+msgid "**Non-interactive mode (for scripts and CI):**"
+msgstr ""
+
+#: ../../source/cli/bench.rst:80
+msgid ""
+"Errors immediately if any required argument is missing, instead of "
+"entering interactive mode. Useful in automated pipelines."
+msgstr ""
+
+#: ../../source/cli/bench.rst:83
+msgid ""
+"If you don't have an LMCache server, you can pass ``--tokens-per-gb-"
+"kvcache`` directly instead of ``--lmcache-url`` (see :ref:`bench-tokens-"
+"per-gb` for how to find this value)."
+msgstr ""
+
+#: ../../source/cli/bench.rst:89
+msgid "General Options"
+msgstr ""
+
+#: ../../source/cli/bench.rst:95 ../../source/cli/bench.rst:188
+#: ../../source/cli/bench.rst:229 ../../source/cli/bench.rst:280
+#: ../../source/cli/bench.rst:367 ../../source/cli/bench.rst:431
+msgid "Flag"
+msgstr ""
+
+#: ../../source/cli/bench.rst:96
+msgid "Required"
+msgstr ""
+
+#: ../../source/cli/bench.rst:97 ../../source/cli/bench.rst:190
+#: ../../source/cli/bench.rst:231 ../../source/cli/bench.rst:282
+#: ../../source/cli/bench.rst:369 ../../source/cli/bench.rst:433
+msgid "Description"
+msgstr ""
+
+#: ../../source/cli/bench.rst:98
+msgid "``--config FILE``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:99 ../../source/cli/bench.rst:104
+#: ../../source/cli/bench.rst:110 ../../source/cli/bench.rst:127
+#: ../../source/cli/bench.rst:131 ../../source/cli/bench.rst:134
+#: ../../source/cli/bench.rst:137 ../../source/cli/bench.rst:140
+#: ../../source/cli/bench.rst:143 ../../source/cli/bench.rst:146
+#: ../../source/cli/bench.rst:149
+msgid "No"
+msgstr ""
+
+#: ../../source/cli/bench.rst:100
+msgid ""
+"Load configuration from a JSON file. Skips interactive mode. CLI flags "
+"override values in the file. The engine URL is not stored in config files"
+" and must be provided separately."
+msgstr ""
+
+#: ../../source/cli/bench.rst:103
+msgid "``--export-config FILE``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:105
+msgid ""
+"Export resolved configuration to a JSON file and exit. Does not run the "
+"benchmark. Auto-detected values (model, tokens per GB) are resolved and "
+"saved so the config is portable. Environment- specific values (engine "
+"URL, LMCache URL) are excluded."
+msgstr ""
+
+#: ../../source/cli/bench.rst:109
+msgid "``--no-interactive``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:111
+msgid ""
+"Disable interactive mode. Errors if required arguments are missing "
+"instead of prompting. Useful for scripts and CI."
+msgstr ""
+
+#: ../../source/cli/bench.rst:113
+msgid "``--engine-url URL``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:114 ../../source/cli/bench.rst:118
+msgid "Yes"
+msgstr ""
+
+#: ../../source/cli/bench.rst:115
+msgid ""
+"Inference engine URL (e.g., ``http://localhost:8000``). Set "
+"``OPENAI_API_KEY`` env var if authentication is needed."
+msgstr ""
+
+#: ../../source/cli/bench.rst:117
+msgid "``--workload TYPE``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:119
+msgid ""
+"Workload type: ``long-doc-qa``, ``multi-round-chat``, ``long-doc-"
+"permutator``, ``prefix-suffix-tuner``, or ``random-prefill``."
+msgstr ""
+
+#: ../../source/cli/bench.rst:122
+msgid "``--tokens-per-gb-kvcache N``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:123
+msgid "\\*"
+msgstr ""
+
+#: ../../source/cli/bench.rst:124
+msgid ""
+"Tokens per GB of KV cache. Required unless ``--lmcache-url`` is set. See "
+":ref:`bench-tokens-per-gb` for how to find this value."
+msgstr ""
+
+#: ../../source/cli/bench.rst:126
+msgid "``--lmcache-url URL``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:128
+msgid ""
+"LMCache HTTP server URL. When provided, ``--tokens-per-gb-kvcache`` is "
+"auto-detected from the server."
+msgstr ""
+
+#: ../../source/cli/bench.rst:130
+msgid "``--model NAME``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:132
+msgid "Model name. Auto-detected from the engine if omitted."
+msgstr ""
+
+#: ../../source/cli/bench.rst:133
+msgid "``--kv-cache-volume GB``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:135
+msgid "Target active KV cache volume in GB (default: 100)."
+msgstr ""
+
+#: ../../source/cli/bench.rst:136
+msgid "``--seed N``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:138
+msgid "Random seed (default: 42)."
+msgstr ""
+
+#: ../../source/cli/bench.rst:139
+msgid "``--output-dir DIR``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:141
+msgid "Directory for CSV and JSON output files (default: current directory)."
+msgstr ""
+
+#: ../../source/cli/bench.rst:142
+msgid "``--no-csv``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:144
+msgid "Skip CSV export."
+msgstr ""
+
+#: ../../source/cli/bench.rst:145
+msgid "``--json``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:147
+msgid "Export a JSON summary file."
+msgstr ""
+
+#: ../../source/cli/bench.rst:148
+msgid "``-q`` / ``--quiet``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:150
+msgid "Suppress the real-time progress display."
+msgstr ""
+
+#: ../../source/cli/bench.rst:156
+msgid "Finding ``--tokens-per-gb-kvcache``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:158
+msgid ""
+"If you have an LMCache server running, the easiest approach is to pass "
+"``--lmcache-url`` and let the tool auto-detect the value."
+msgstr ""
+
+#: ../../source/cli/bench.rst:161
+msgid ""
+"If you are using **vLLM without LMCache**, look for these lines in vLLM's"
+" startup log:"
+msgstr ""
+
+#: ../../source/cli/bench.rst:169
+msgid "Then compute::"
+msgstr ""
+
+#: ../../source/cli/bench.rst:175
+msgid "Workloads"
+msgstr ""
+
+#: ../../source/cli/bench.rst:178
+msgid "long-doc-qa"
+msgstr ""
+
+#: ../../source/cli/bench.rst:180
+msgid ""
+"Simulates repeated Q&A over long documents. Warmup sends each document "
+"once to populate the KV cache, then benchmark queries are dispatched with"
+" semaphore-controlled concurrency."
+msgstr ""
+
+#: ../../source/cli/bench.rst:189 ../../source/cli/bench.rst:230
+#: ../../source/cli/bench.rst:281 ../../source/cli/bench.rst:368
+#: ../../source/cli/bench.rst:432
+msgid "Default"
+msgstr ""
+
+#: ../../source/cli/bench.rst:191
+msgid "``--ldqa-document-length``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:192 ../../source/cli/bench.rst:236
+#: ../../source/cli/bench.rst:435
+msgid "10000"
+msgstr ""
+
+#: ../../source/cli/bench.rst:193
+msgid "Token length of each synthetic document."
+msgstr ""
+
+#: ../../source/cli/bench.rst:194
+msgid "``--ldqa-query-per-document``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:195 ../../source/cli/bench.rst:333
+msgid "2"
+msgstr ""
+
+#: ../../source/cli/bench.rst:196
+msgid "Number of questions asked per document."
+msgstr ""
+
+#: ../../source/cli/bench.rst:197
+msgid "``--ldqa-shuffle-policy``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:198
+msgid "random"
+msgstr ""
+
+#: ../../source/cli/bench.rst:199
+msgid "Request ordering: ``random`` (shuffled) or ``tile`` (round-by-round)."
+msgstr ""
+
+#: ../../source/cli/bench.rst:200
+msgid "``--ldqa-num-inflight-requests``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:201 ../../source/cli/bench.rst:337
+msgid "3"
+msgstr ""
+
+#: ../../source/cli/bench.rst:202 ../../source/cli/bench.rst:298
+msgid "Maximum concurrent in-flight requests."
+msgstr ""
+
+#: ../../source/cli/bench.rst:204 ../../source/cli/bench.rst:251
+#: ../../source/cli/bench.rst:300 ../../source/cli/bench.rst:391
+#: ../../source/cli/bench.rst:441
+msgid "**Example:**"
+msgstr ""
+
+#: ../../source/cli/bench.rst:219
+msgid "multi-round-chat"
+msgstr ""
+
+#: ../../source/cli/bench.rst:221
+msgid ""
+"Simulates multi-round chat with stateful sessions. Creates concurrent "
+"user sessions, dispatches requests at a fixed QPS rate, and records "
+"responses in session history so each subsequent query includes prior "
+"context."
+msgstr ""
+
+#: ../../source/cli/bench.rst:232
+msgid "``--mrc-shared-prompt-length``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:233
+msgid "2000"
+msgstr ""
+
+#: ../../source/cli/bench.rst:234
+msgid "System prompt token length per session."
+msgstr ""
+
+#: ../../source/cli/bench.rst:235
+msgid "``--mrc-chat-history-length``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:237
+msgid "Pre-filled chat history token length."
+msgstr ""
+
+#: ../../source/cli/bench.rst:238
+msgid "``--mrc-user-input-length``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:239 ../../source/cli/bench.rst:438
+msgid "50"
+msgstr ""
+
+#: ../../source/cli/bench.rst:240
+msgid "Tokens per user query."
+msgstr ""
+
+#: ../../source/cli/bench.rst:241
+msgid "``--mrc-output-length``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:242
+msgid "200"
+msgstr ""
+
+#: ../../source/cli/bench.rst:243
+msgid "Max tokens to generate per response."
+msgstr ""
+
+#: ../../source/cli/bench.rst:244
+msgid "``--mrc-qps``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:245
+msgid "1.0"
+msgstr ""
+
+#: ../../source/cli/bench.rst:246
+msgid "Target queries per second."
+msgstr ""
+
+#: ../../source/cli/bench.rst:247
+msgid "``--mrc-duration``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:248
+msgid "60.0"
+msgstr ""
+
+#: ../../source/cli/bench.rst:249
+msgid "Benchmark duration in seconds."
+msgstr ""
+
+#: ../../source/cli/bench.rst:264
+msgid "long-doc-permutator"
+msgstr ""
+
+#: ../../source/cli/bench.rst:266
+msgid ""
+"Stress-tests blended KV cache reuse by sending permutations of a set of "
+"context documents. Each request concatenates all context documents in a "
+"different order:"
+msgstr ""
+
+#: ../../source/cli/bench.rst:273
+msgid ""
+"A single dummy warmup request is sent before the benchmark phase. "
+"Requests are dispatched with semaphore-controlled concurrency."
+msgstr ""
+
+#: ../../source/cli/bench.rst:283
+msgid "``--ldp-num-contexts``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:284
+msgid "5"
+msgstr ""
+
+#: ../../source/cli/bench.rst:285
+msgid "Number of unique context documents."
+msgstr ""
+
+#: ../../source/cli/bench.rst:286
+msgid "``--ldp-context-length``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:287
+msgid "5000"
+msgstr ""
+
+#: ../../source/cli/bench.rst:288
+msgid "Token length of each context document."
+msgstr ""
+
+#: ../../source/cli/bench.rst:289
+msgid "``--ldp-system-prompt-length``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:290
+msgid "1000"
+msgstr ""
+
+#: ../../source/cli/bench.rst:291
+msgid "Token length of the shared system prompt. Use ``0`` for no system prompt."
+msgstr ""
+
+#: ../../source/cli/bench.rst:292
+msgid "``--ldp-num-permutations``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:293
+msgid "10"
+msgstr ""
+
+#: ../../source/cli/bench.rst:294
+msgid ""
+"Number of distinct permutations to send. Capped at N! where N = ``--ldp-"
+"num-contexts``."
+msgstr ""
+
+#: ../../source/cli/bench.rst:296
+msgid "``--ldp-num-inflight-requests``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:297 ../../source/cli/bench.rst:329
+msgid "1"
+msgstr ""
+
+#: ../../source/cli/bench.rst:315
+msgid "prefix-suffix-tuner"
+msgstr ""
+
+#: ../../source/cli/bench.rst:317
+msgid ""
+"A two-pass sequential workload designed to be run **unchanged** across "
+"three LMCache configurations to demonstrate the value of each cache tier "
+"(L0 HBM, L1 DRAM, L2 disk):"
+msgstr ""
+
+#: ../../source/cli/bench.rst:325
+msgid "Baseline"
+msgstr ""
+
+#: ../../source/cli/bench.rst:326
+msgid "LMCache config"
+msgstr ""
+
+#: ../../source/cli/bench.rst:327
+msgid "Targeted overflow"
+msgstr ""
+
+#: ../../source/cli/bench.rst:328
+msgid "Expected pass-2 hits"
+msgstr ""
+
+#: ../../source/cli/bench.rst:330
+msgid "vanilla vLLM (L0 only)"
+msgstr ""
+
+#: ../../source/cli/bench.rst:331
+msgid "L0 (HBM)"
+msgstr ""
+
+#: ../../source/cli/bench.rst:332
+msgid "none -- every request a cold prefill"
+msgstr ""
+
+#: ../../source/cli/bench.rst:334
+msgid "vLLM + LMCache L1 + L2"
+msgstr ""
+
+#: ../../source/cli/bench.rst:335 ../../source/cli/bench.rst:339
+msgid "L1 (DRAM)"
+msgstr ""
+
+#: ../../source/cli/bench.rst:336
+msgid "L2 prefix hits (suffix recomputed)"
+msgstr ""
+
+#: ../../source/cli/bench.rst:338
+msgid "vLLM + LMCache L1 + L2 + CacheBlend"
+msgstr ""
+
+#: ../../source/cli/bench.rst:340
+msgid "L2 prefix hits + CacheBlend suffix hits"
+msgstr ""
+
+#: ../../source/cli/bench.rst:342
+msgid ""
+"Set ``--kv-cache-volume`` to the size in GB of the tier you want to "
+"overflow (L0 size for Baseline 1, L1 size for Baselines 2 and 3). The "
+"workload itself is identical across baselines."
+msgstr ""
+
+#: ../../source/cli/bench.rst:346
+msgid "Each request has the layout::"
+msgstr ""
+
+#: ../../source/cli/bench.rst:350
+msgid ""
+"``num_prefixes`` distinct prefixes, each starting with ``PREFIX_<8-hex>``"
+" so the prefix's tokenized hash differs across the pool."
+msgstr ""
+
+#: ../../source/cli/bench.rst:352
+msgid ""
+"A fresh random 32-token breaker per request, defeating ordinary prefix "
+"caching past the prefix boundary."
+msgstr ""
+
+#: ../../source/cli/bench.rst:354
+msgid ""
+"A single shared suffix used by every request -- the only entry CacheBlend"
+" can reuse."
+msgstr ""
+
+#: ../../source/cli/bench.rst:357
+msgid ""
+"Pass 1 (warmup) sends each prefix once to populate the cache; its stats "
+"are discarded. Pass 2 sends them again in identical order. Because LRU "
+"evicts the next-needed prefix on each pass-2 access, even a 1.05x "
+"overflow of the targeted tier is enough to make every pass-2 request miss"
+" that tier and fall through to the next one."
+msgstr ""
+
+#: ../../source/cli/bench.rst:370
+msgid "``--psf-context-length``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:371
+msgid "8000"
+msgstr ""
+
+#: ../../source/cli/bench.rst:372
+msgid "Total tokens per request (prefix + breaker + suffix)."
+msgstr ""
+
+#: ../../source/cli/bench.rst:373
+msgid "``--psf-prefix-ratio``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:374
+msgid "0.8"
+msgstr ""
+
+#: ../../source/cli/bench.rst:375
+msgid ""
+"Fraction of context-length used by the prefix. Must be in (0.0, 1.0). The"
+" remainder (minus a 32-token breaker) is the shared suffix."
+msgstr ""
+
+#: ../../source/cli/bench.rst:377
+msgid "``--psf-thrash``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:378
+msgid "20.0"
+msgstr ""
+
+#: ../../source/cli/bench.rst:379
+#, python-format
+msgid ""
+"**Size in GB of the KV-cache tier to overflow.** Use the L0 (HBM) size "
+"for vanilla vLLM, or the L1 (LMCache DRAM) size for tiered baselines. The"
+" workload sizes its prefix pool to slightly more than this (5% overflow "
+"internally), enough to drive every pass-2 request to a miss of that tier "
+"under sequential dispatch + LRU."
+msgstr ""
+
+#: ../../source/cli/bench.rst:385
+msgid ""
+"The number of pass-2 (measured) requests equals the prefix pool size, "
+"computed as ``floor(psf_thrash * 1.05 * tokens_per_gb / prefix_tokens)``."
+" ``--kv-cache-volume`` is unused by this workload — sizing is driven "
+"solely by ``--psf-thrash``."
+msgstr ""
+
+#: ../../source/cli/bench.rst:404
+#, python-format
+msgid ""
+"For the analytical-model claim \"thrash ≈ L1 size → ~0% LMCache hit "
+"rate\" to hold empirically, the LMCache server must be started with "
+"``--eviction-ratio 0.99`` (default ``0.20`` only clears 20% per cycle, "
+"leaving ~60% of pass-1 content in cache through pass 2):"
+msgstr ""
+
+#: ../../source/cli/bench.rst:415
+msgid ""
+"The workload itself sleeps 5 seconds between pass 1 (warmup) and pass 2 "
+"(measured), so LMCache's 1Hz batched-eviction polling thread has time to "
+"actually run.  Without that sleep, fast benchmarks complete before any "
+"eviction fires."
+msgstr ""
+
+#: ../../source/cli/bench.rst:422
+msgid "random-prefill"
+msgstr ""
+
+#: ../../source/cli/bench.rst:424
+msgid ""
+"Fires all requests simultaneously with ``max_tokens=1`` to measure pure "
+"prefill performance. No warmup phase."
+msgstr ""
+
+#: ../../source/cli/bench.rst:434
+msgid "``--rp-request-length``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:436
+msgid "Token length per prefill request."
+msgstr ""
+
+#: ../../source/cli/bench.rst:437
+msgid "``--rp-num-requests``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:439
+msgid "Number of requests to fire."
+msgstr ""
+
+#: ../../source/cli/bench.rst:454
+msgid "Interactive Mode"
+msgstr ""
+
+#: ../../source/cli/bench.rst:456
+msgid "Interactive mode demo"
+msgstr ""
+
+#: ../../source/cli/bench.rst:460
+msgid ""
+"When ``--engine-url`` or ``--workload`` is not provided (and ``--no-"
+"interactive`` is not set), the tool enters interactive mode. It guides "
+"you through four phases:"
+msgstr ""
+
+#: ../../source/cli/bench.rst:464
+msgid ""
+"**Required settings** -- engine URL, workload type, LMCache server (or "
+"tokens per GB)."
+msgstr ""
+
+#: ../../source/cli/bench.rst:466
+msgid "**General settings** (optional gate) -- model name, KV cache volume."
+msgstr ""
+
+#: ../../source/cli/bench.rst:467
+msgid "**Workload settings** (optional gate) -- workload-specific parameters."
+msgstr ""
+
+#: ../../source/cli/bench.rst:468
+msgid ""
+"**Summary and action** -- review configuration, then start the benchmark "
+"or export to a JSON file."
+msgstr ""
+
+#: ../../source/cli/bench.rst:471
+msgid ""
+"Each prompt focuses on a single setting. Selection prompts use arrow "
+"keys; text and number prompts accept typed input with defaults shown in "
+"brackets."
+msgstr ""
+
+#: ../../source/cli/bench.rst:514
+msgid ""
+"When you choose \"Export configuration\", all auto-detected values (model"
+" name, tokens per GB) are resolved and saved to a portable JSON file."
+msgstr ""
+
+#: ../../source/cli/bench.rst:519
+msgid "Config File"
+msgstr ""
+
+#: ../../source/cli/bench.rst:521
+msgid ""
+"Config files store benchmark parameters but **not** environment-specific "
+"values like engine URL or LMCache URL. This lets you reuse the same "
+"config across different environments."
+msgstr ""
+
+#: ../../source/cli/bench.rst:525
+msgid "You can create a config file in three ways:"
+msgstr ""
+
+#: ../../source/cli/bench.rst:527
+msgid ""
+"**Interactive mode** -- choose \"Export configuration\" at the summary "
+"step."
+msgstr ""
+
+#: ../../source/cli/bench.rst:528
+msgid "**``--export-config``** -- resolve and export from CLI without running."
+msgstr ""
+
+#: ../../source/cli/bench.rst:529
+msgid ""
+"**Manually** -- write JSON with keys matching CLI arg names (dashes "
+"replaced by underscores)."
+msgstr ""
+
+#: ../../source/cli/bench.rst:532
+msgid "Example config file:"
+msgstr ""
+
+#: ../../source/cli/bench.rst:547
+msgid "Load it with ``--config`` (engine URL must be provided separately):"
+msgstr ""
+
+#: ../../source/cli/bench.rst:554
+msgid ""
+"CLI arguments override config file values, so you can use a base config "
+"and tweak individual settings:"
+msgstr ""
+
+#: ../../source/cli/bench.rst:565
+msgid "Output"
+msgstr ""
+
+#: ../../source/cli/bench.rst:568
+msgid "Terminal (real-time progress)"
+msgstr ""
+
+#: ../../source/cli/bench.rst:570
+msgid ""
+"During the benchmark, a live progress display shows in-flight requests, "
+"average TTFT, decode speed, and throughput. Suppress it with ``-q``."
+msgstr ""
+
+#: ../../source/cli/bench.rst:574
+msgid "Terminal (final summary)"
+msgstr ""
+
+#: ../../source/cli/bench.rst:576
+msgid "After completion, a summary table is printed:"
+msgstr ""
+
+#: ../../source/cli/bench.rst:606
+msgid "CSV and JSON"
+msgstr ""
+
+#: ../../source/cli/bench.rst:608
+msgid ""
+"``bench_results.csv`` -- per-request metrics (TTFT, latency, decode "
+"speed, token counts). Written by default; skip with ``--no-csv``."
+msgstr ""
+
+#: ../../source/cli/bench.rst:610
+msgid ""
+"``bench_summary.json`` -- aggregate statistics with percentiles and "
+"config metadata. Opt-in with ``--json``."
+msgstr ""
+
+#: ../../source/cli/bench.rst:613
+msgid "Both files are written to ``--output-dir`` (default: current directory)."
+msgstr ""
+
+#: ../../source/cli/bench.rst:617
+msgid "Exit Codes"
+msgstr ""
+
+#: ../../source/cli/bench.rst:623
+msgid "Code"
+msgstr ""
+
+#: ../../source/cli/bench.rst:624
+msgid "Meaning"
+msgstr ""
+
+#: ../../source/cli/bench.rst:625
+msgid "``0``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:626
+msgid "All requests succeeded."
+msgstr ""
+
+#: ../../source/cli/bench.rst:627
+msgid "``1``"
+msgstr ""
+
+#: ../../source/cli/bench.rst:628
+msgid "One or more requests failed."
+msgstr ""
+
