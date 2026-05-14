@@ -139,3 +139,6 @@ operator/dist/
 operator/cover.out
 operator/coverage.html
 operator/Dockerfile.cross
+
+# Compiled gettext catalogs (built from .po at HTML build time)
+docs/source/locale/**/*.mo
