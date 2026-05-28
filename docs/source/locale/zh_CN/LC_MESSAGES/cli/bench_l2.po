@@ -1,0 +1,427 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, The LMCache Team
+# This file is distributed under the same license as the LMCache package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: LMCache \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-28 17:29+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/cli/bench_l2.rst:4
+msgid "lmcache bench l2"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:6
+msgid ""
+"The ``lmcache bench l2`` command benchmarks an L2 cache adapter (e.g. the"
+" local-filesystem adapter) end-to-end through the same "
+"``parse_args_to_l2_adapters_config`` + ``create_l2_adapter`` pipeline "
+"that LMCache uses in production. Any registered adapter type can be "
+"tested without code changes: you describe the adapter with a single JSON "
+"spec and pick the operations to exercise."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:17
+msgid ""
+"Unlike :ref:`lmcache bench engine <lmcache-bench-engine>`, this command "
+"does **not** require an inference engine or an LMCache MP server. It only"
+" needs the adapter's own backing storage to be reachable (for the ``fs`` "
+"adapter, that simply means a writable directory)."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:24
+msgid "What it does"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:26
+msgid ""
+"For each measured operation the tool drives the adapter directly via its "
+"public submit/wait API:"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:29
+msgid ""
+"``Store``  -- ``submit_store_task`` writes ``num_keys`` MemoryObjs per "
+"submit and waits for the store eventfd."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:31
+msgid ""
+"``Lookup`` -- ``submit_lookup_and_lock_task`` checks key existence (no "
+"payload transfer) and waits for the lookup eventfd."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:33
+msgid ""
+"``Load``   -- ``submit_load_task`` reads ``num_keys`` MemoryObjs per "
+"submit and waits for the load eventfd."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:36
+msgid ""
+"Each measured **round** issues ``--in-flight`` submits sequentially from "
+"a single producer thread and then waits for all of them to complete; the "
+"round duration is the wall-clock time from the first submit until the "
+"last completion. Warmup rounds run before measurement and their results "
+"are discarded from the final summary."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:42
+msgid ""
+"All three operations share the same key idx universe, so running ``--only"
+" store`` followed by ``--only load`` (or ``--only lookup``) with "
+"identical other flags hits exactly the same keys. This makes the "
+"benchmark useful as a quick regression test for adapters that should "
+"support a clean store -> load round-trip."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:50
+msgid ""
+"When ``--only`` is not given, the three operations are run **in a single "
+"process in the order** ``store -> lookup -> load``. For adapters whose "
+"backing storage sits behind an OS-level cache -- most notably the local-"
+"filesystem (``fs``) adapter, which is subject to the Linux **page cache**"
+" -- this means ``lookup`` and ``load`` will almost always observe the "
+"data that ``store`` just wrote still hot in RAM, and the reported numbers"
+" reflect page-cache throughput rather than the underlying device."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:59
+msgid ""
+"To benchmark each operation against a cold cache, run them separately "
+"with ``--only`` and drop the OS caches in between, for example::"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:69
+msgid ""
+"For adapters that bypass the page cache (e.g. ``fs`` with "
+"``\"use_odirect\": true``) or that talk to a remote service without a "
+"local cache, the default combined run is usually fine."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:74
+msgid "Benchmark the local filesystem adapter with default parameters:"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:81
+msgid ""
+"This runs all three operations (store, lookup, load) with one warmup "
+"round and one measurement round."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:84
+msgid "Stress the adapter with more in-flight submits and larger payloads:"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:94
+msgid "Run only one operation (useful to isolate store vs. load throughput):"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:102
+msgid ""
+"Lookup with a controlled hit rate (the benchmark splits the lookup keys "
+"between a potentially-existing range and a guaranteed-non-existent "
+"range):"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:112
+msgid ""
+"Enable a store -> load round-trip data integrity check on the last "
+"measured round:"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:121
+msgid ""
+"If you prefer to keep the JSON spec out of the command line, set the "
+"``L2_ADAPTER_JSON`` environment variable instead of passing "
+"``--l2-adapter``:"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:132
+msgid "Options"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:138
+msgid "Flag"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:139
+msgid "Default"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:140
+msgid "Description"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:141
+msgid "``--l2-adapter JSON``"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:142 ../../source/cli/bench_l2.rst:182
+msgid "*(unset)*"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:143
+#, python-brace-format
+msgid ""
+"L2 adapter spec as JSON with a ``\"type\"`` field plus adapter-specific "
+"configs, e.g. ``'{\"type\":\"fs\",\"base_path\":\"/tmp/bench\"}'``. May "
+"be passed multiple times; only the first spec is benchmarked. If not "
+"provided, falls back to the ``L2_ADAPTER_JSON`` environment variable. "
+"Either the flag or the env var is **required**."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:149
+msgid "``--num-keys N``"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:150
+msgid "``32``"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:151
+msgid "Number of keys per submit."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:152
+msgid "``--in-flight N``"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:153 ../../source/cli/bench_l2.rst:161
+#: ../../source/cli/bench_l2.rst:164 ../../source/cli/bench_l2.rst:324
+msgid "``1``"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:154
+msgid ""
+"In-flight submits per round. Each round issues this many submits "
+"sequentially from a single producer thread, then waits for all of them."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:157
+msgid "``--data-size-kb N``"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:158
+msgid "``256``"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:159
+msgid "Data size per key, in KiB."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:160
+msgid "``--rounds N``"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:162
+msgid "Measurement rounds per operation."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:163
+msgid "``--warmup-rounds N``"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:165
+msgid "Warmup rounds run before measurement; their results are discarded."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:167
+msgid "``--lookup-max-hit-rate F``"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:168
+msgid "``0.0``"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:169
+msgid ""
+"Upper bound on the lookup hit rate, in ``[0, 1]``. The benchmark requests"
+" ``floor(N * rate)`` keys from the potentially-existing range and ``N - "
+"hit`` keys from a guaranteed-non-existent range, where ``N`` is the total"
+" number of lookup keys. The actual hit rate may be lower if those keys "
+"were never stored in this run."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:175
+msgid "``--skip-verify`` / ``--no-skip-verify``"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:176
+msgid "``--skip-verify``"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:177
+msgid ""
+"Skip the store -> load round-trip data integrity check (the default). "
+"Pass ``--no-skip-verify`` to enable verification on the last measured "
+"round; this requires both ``store`` and ``load`` to be exercised."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:181
+#, python-brace-format
+msgid "``--only {lookup,store,load}``"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:183
+msgid ""
+"Run only the specified operation. When omitted, all three operations are "
+"run in the order ``store -> lookup -> load``."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:188
+msgid "Adapter JSON spec"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:190
+msgid ""
+"The ``--l2-adapter`` JSON is parsed by "
+"``lmcache.v1.distributed.l2_adapters.config.parse_args_to_l2_adapters_config``,"
+" the same entry point LMCache uses everywhere else. The minimum required "
+"field is ``type``; all remaining fields are forwarded to the adapter "
+"implementation as keyword arguments."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:196
+msgid "Example for the local-filesystem adapter:"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:208
+msgid ""
+"See the source under ``lmcache/v1/distributed/l2_adapters/`` for the full"
+" list of adapter types and their accepted fields."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:213
+msgid "Example output"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:215
+msgid "Per-round progress (suppressed by ``-q`` if you wire it through):"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:248
+msgid "Final summary (one section per exercised operation):"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:278
+msgid ""
+"Each operation section reports per-round duration statistics (avg / min /"
+" max / p50 / p99 / std), aggregate throughput (``avg_throughput_mbps`` --"
+" 0 for ``Lookup`` since it has no payload), average key-rate "
+"(``avg_ops_per_sec``), and a per-key latency."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:283
+msgid ""
+"For ``Lookup``, three additional fields are reported when ``--lookup-max-"
+"hit-rate`` is non-zero or some keys were found:"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:286
+msgid "``Expected max hit rate`` -- the configured upper bound."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:287
+msgid ""
+"``Expected hit keys`` -- ``floor(total_keys * rate)``, scaled for the "
+"measured rounds only."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:289
+msgid "``Actual hit rate`` -- the measured hit rate over the kept rounds."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:293
+msgid "Round-trip verification"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:295
+msgid ""
+"When ``--no-skip-verify`` is passed and both ``store`` and ``load`` were "
+"run, the benchmark compares the load buffers from the last measured round"
+" against the byte pattern that ``store`` wrote (see "
+"``make_memory_objects`` in "
+"``lmcache/cli/commands/bench/l2_adapter_bench/data.py``):"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:306
+msgid ""
+"Verification is **off** by default because the stricter byte pattern also"
+" forces every key to allocate its own ``data_size`` buffer (otherwise the"
+" runner is free to reuse a single shared buffer across keys to keep the "
+"memory footprint small)."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:313
+msgid "Exit codes"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:319
+msgid "Code"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:320
+msgid "Meaning"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:321
+msgid "``0``"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:322
+msgid ""
+"All requested operations completed and (when enabled) the round-trip "
+"verification passed."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:325
+msgid ""
+"Adapter creation failed, round-trip verification failed, or an operation "
+"hit a fatal error (e.g. all rounds timed out)."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:327
+msgid "``2``"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:328
+msgid ""
+"The ``--l2-adapter`` JSON / ``L2_ADAPTER_JSON`` env var was missing or "
+"could not be parsed."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:333
+msgid "See also"
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:335
+msgid ""
+":doc:`bench` -- ``lmcache bench engine`` for engine-side workload "
+"benchmarks."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:337
+msgid ""
+":doc:`bench_server` -- end-to-end sanity test against an LMCache MP "
+"server."
+msgstr ""
+
+#: ../../source/cli/bench_l2.rst:339
+msgid ""
+":doc:`kvcache` -- ``lmcache kvcache`` for managing KV cache state on a "
+"running server."
+msgstr ""
+

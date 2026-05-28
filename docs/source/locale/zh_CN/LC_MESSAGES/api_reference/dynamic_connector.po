@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LMCache \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-18 17:25+0000\n"
+"POT-Creation-Date: 2026-05-25 12:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -31,7 +31,7 @@ msgstr "上游集成："
 msgid ""
 "LMCache integration with official upstream vLLM was introduced in `early "
 "February 2025 <https://github.com/vllm-project/vllm/pull/12953>`_."
-msgstr "LMCache 与官方上游 vLLM 的集成是在 `2025 年 2 月初 <https://github.com/vllm-project/vllm/pull/12953>`_ 中引入的。"
+msgstr "LMCache 与官方上游 vLLM 的集成在 `2025 年 2 月初 <https://github.com/vllm-project/vllm/pull/12953>`_ 引入。"
 
 #: ../../source/api_reference/dynamic_connector.rst:9
 msgid ""
@@ -39,7 +39,7 @@ msgid ""
 "`vllm/distributed/kv_transfer/kv_connector/v1/lmcache_connector.py "
 "<https://github.com/vllm-"
 "project/vllm/blob/main/vllm/distributed/kv_transfer/kv_connector/v1/lmcache_connector.py>`_:"
-msgstr "vLLM 从 lmcache 包导入连接器，并将其封装在 `vllm/distributed/kv_transfer/kv_connector/v1/lmcache_connector.py <https://github.com/vllm-project/vllm/blob/main/vllm/distributed/kv_transfer/kv_connector/v1/lmcache_connector.py>`_ 中："
+msgstr "vLLM 从 lmcache 包中导入连接器，并将其包装在 `vllm/distributed/kv_transfer/kv_connector/v1/lmcache_connector.py <https://github.com/vllm-project/vllm/blob/main/vllm/distributed/kv_transfer/kv_connector/v1/lmcache_connector.py>`_ 中："
 
 #: ../../source/api_reference/dynamic_connector.rst:15
 msgid ""
@@ -54,11 +54,11 @@ msgstr "vLLM 上游连接器的示例用法："
 #: ../../source/api_reference/dynamic_connector.rst:19
 #: ../../source/api_reference/dynamic_connector.rst:44
 msgid "**Pythonic Transfer Config:**"
-msgstr "**Pythonic Transfer Config:**"
+msgstr "**Pythonic Transfer 配置：**"
 
 #: ../../source/api_reference/dynamic_connector.rst:29
 msgid "**Command Line Transfer Configs:**"
-msgstr "**命令行传输配置:**"
+msgstr "**命令行传输配置：**"
 
 #: ../../source/api_reference/dynamic_connector.rst:38
 msgid "Dynamic Connector:"
@@ -70,11 +70,11 @@ msgid ""
 "supports dynamic loading of KV connector implementations so we can "
 "directly reference connectors from the LMCache package without having to "
 "update vLLM."
-msgstr "在 2025 年 6 月，vLLM 支持动态加载 KV 连接器实现，因此我们可以直接引用 LMCache 包中的连接器，而无需更新 vLLM。"
+msgstr "2025年6月，vLLM 支持动态加载 KV 连接器实现，因此我们可以直接引用 LMCache 包中的连接器，而无需更新 vLLM。"
 
 #: ../../source/api_reference/dynamic_connector.rst:42
 msgid "Example usage of dynamic connector from LMCache:"
-msgstr "来自 LMCache 的动态连接器示例用法："
+msgstr "LMCache 动态连接器的示例用法："
 
 #: ../../source/api_reference/dynamic_connector.rst:55
 msgid "**Command Line Transfer Config:**"
@@ -84,11 +84,11 @@ msgstr "**命令行传输配置：**"
 msgid ""
 "This allows LMCache to modify/develop connectors and quickly plug-and-"
 "play."
-msgstr "这允许 LMCache 修改/开发连接器并快速插拔。"
+msgstr "这使得LMCache可以修改/开发连接器并快速即插即用。"
 
 #: ../../source/api_reference/dynamic_connector.rst:65
 msgid ""
 "Any custom adapters will be documented here in the future as well as "
 "possible deprecations to the upstream connector."
-msgstr "未来任何自定义适配器将会在这里记录，以及可能对上游连接器的弃用。"
+msgstr "任何自定义适配器将在未来记录在此处，以及对上游连接器可能的弃用。"
 

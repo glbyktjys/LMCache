@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LMCache \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-18 17:25+0000\n"
+"POT-Creation-Date: 2026-05-25 12:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -21,17 +21,17 @@ msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:4
 msgid "Periodic Thread Monitoring API"
-msgstr "周期性线程监控 API"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:6
 msgid ""
 "This document describes the Periodic Thread Monitoring API feature "
 "introduced in LMCache."
-msgstr "本文描述了在 LMCache 中引入的周期性线程监控 API 功能。"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:10
 msgid "Overview"
-msgstr "概述"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:12
 msgid ""
@@ -39,194 +39,194 @@ msgid ""
 " inspect the status of all periodic background threads running in the "
 "LMCache system. This is useful for debugging, health checking, and "
 "operational monitoring."
-msgstr "周期性线程监控 API 提供 HTTP 端点，以监控和检查在 LMCache 系统中运行的所有周期性后台线程的状态。这对于调试、健康检查和操作监控非常有用。"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:18
 msgid "API Endpoints"
-msgstr "API 端点"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:20
 msgid "Three API endpoints are available under the internal API server:"
-msgstr "在内部 API 服务器下提供三个 API 端点："
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:23
 msgid "GET /periodic-threads"
-msgstr "GET /periodic-threads"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:25
 msgid "Returns information about all registered periodic threads."
-msgstr "返回所有注册的周期线程的信息。"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:27
 msgid "**Query Parameters:**"
-msgstr "**查询参数：**"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:33
 msgid "Parameter"
-msgstr "参数"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:34
 msgid "Default"
-msgstr "默认"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:35
 #: ../../source/production/observability/periodic_thread_api.rst:121
 msgid "Description"
-msgstr "描述"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:36
 msgid "``level``"
-msgstr "``level``"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:37
 msgid "(none)"
-msgstr "（无）"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:38
 msgid "Filter by thread level (``critical``, ``high``, ``medium``, ``low``)"
-msgstr "按线程级别过滤（``critical``, ``high``, ``medium``, ``low``）"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:39
 msgid "``running_only``"
-msgstr "``running_only``"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:40
 #: ../../source/production/observability/periodic_thread_api.rst:43
 msgid "``false``"
-msgstr "``false``"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:41
 msgid "Only show running threads"
-msgstr "仅显示正在运行的线程"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:42
 msgid "``active_only``"
-msgstr "``active_only``"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:44
 msgid "Only show active threads"
-msgstr "仅显示活动线程"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:46
 #: ../../source/production/observability/periodic_thread_api.rst:79
 #: ../../source/production/observability/periodic_thread_api.rst:101
 msgid "**Response Example:**"
-msgstr "**响应示例：**"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:75
 #, python-brace-format
 msgid "GET /periodic-threads/{thread_name}"
-msgstr "GET /periodic-threads/{thread_name}"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:77
 msgid "Returns detailed information about a specific periodic thread."
-msgstr "返回有关特定周期线程的详细信息。"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:96
 msgid "GET /periodic-threads-health"
-msgstr "GET /periodic-threads-health"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:98
 msgid ""
 "Quick health check for periodic threads. Returns whether all critical and"
 " high-level threads are active."
-msgstr "对周期性线程的快速健康检查。返回所有关键和高级线程是否处于活动状态。"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:112
 msgid "Thread Levels"
-msgstr "线程级别"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:114
 msgid "Periodic threads are categorized by importance level:"
-msgstr "周期性线程按重要性级别分类："
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:120
 msgid "Level"
-msgstr "级别"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:122
 msgid "``critical``"
-msgstr "``critical``"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:123
 msgid "Essential for system operation"
-msgstr "系统运行所必需"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:124
 msgid "``high``"
-msgstr "``high``"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:125
 msgid "Important for performance"
-msgstr "对性能很重要"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:126
 msgid "``medium``"
-msgstr "``medium``"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:127
 msgid "Standard background tasks"
-msgstr "标准后台任务"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:128
 msgid "``low``"
-msgstr "``low``"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:129
 msgid "Optional/auxiliary tasks"
-msgstr "可选/辅助任务"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:131
 msgid ""
 "The health check endpoint specifically monitors ``critical`` and ``high``"
 " level threads to determine system health."
-msgstr "健康检查端点专门监控 ``critical`` 和 ``high`` 级别的线程以确定系统健康状况。"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:135
 msgid "IrrecoverableException Handling"
-msgstr "不可恢复异常处理"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:137
 msgid ""
 "Periodic threads now properly handle ``IrrecoverableException``. When "
 "such an exception is raised during thread execution:"
-msgstr "周期性线程现在正确处理 ``IrrecoverableException``。当在线程执行期间引发此类异常时："
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:140
 msgid "The exception is logged with full traceback"
-msgstr "该异常的完整回溯将被记录。"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:141
 msgid "The thread run is marked as failed"
-msgstr "线程运行被标记为失败"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:142
 msgid "The thread **stops its execution loop** instead of continuing"
-msgstr "线程 **停止其执行循环** 而不是继续执行。"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:144
 msgid ""
 "This prevents threads from endlessly retrying operations that cannot "
 "succeed."
-msgstr "这可以防止线程无休止地重试无法成功的操作。"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:147
 msgid "Usage Examples"
-msgstr "使用示例"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:150
 msgid "Check Overall Thread Health"
-msgstr "检查整体线程健康状况"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:157
 msgid "List All Running Threads"
-msgstr "列出所有正在运行的线程"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:164
 msgid "Get Critical Threads Only"
-msgstr "仅获取关键线程"
+msgstr ""
 
 #: ../../source/production/observability/periodic_thread_api.rst:171
 msgid "Check Specific Thread Status"
-msgstr "检查特定线程状态"
+msgstr ""
 

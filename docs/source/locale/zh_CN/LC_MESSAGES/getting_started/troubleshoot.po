@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LMCache \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-18 17:25+0000\n"
+"POT-Creation-Date: 2026-05-25 12:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -21,9 +21,9 @@ msgstr ""
 
 #: ../../source/getting_started/troubleshoot.rst:2
 msgid "TroubleShoot"
-msgstr "故障排除"
+msgstr ""
 
 #: ../../source/getting_started/troubleshoot.rst:4
 msgid "Coming soon..."
-msgstr "敬请期待..."
+msgstr ""
 

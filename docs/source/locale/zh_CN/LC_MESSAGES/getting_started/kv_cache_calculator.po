@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LMCache \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-18 17:25+0000\n"
+"POT-Creation-Date: 2026-05-25 12:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -21,25 +21,25 @@ msgstr ""
 
 #: ../../source/getting_started/kv_cache_calculator.rst:2
 msgid "KV Cache Size Calculator"
-msgstr "KV Cache 大小计算器"
+msgstr ""
 
 #: ../../source/getting_started/kv_cache_calculator.rst:4
 msgid "Use this interactive calculator to:"
-msgstr "使用此交互式计算器来："
+msgstr ""
 
 #: ../../source/getting_started/kv_cache_calculator.rst:6
 msgid ""
 "**Calculate KV Cache Size**: Estimate the memory required for caching a "
 "specific number of tokens"
-msgstr "**计算 KV Cache 大小**：估算缓存特定数量的令牌所需的内存"
+msgstr ""
 
 #: ../../source/getting_started/kv_cache_calculator.rst:7
 msgid ""
 "**Calculate Maximum Tokens**: Find out how many tokens you can cache "
 "given your available GPU RAM"
-msgstr "**计算最大令牌数**：找出在可用的 GPU RAM 下可以缓存多少令牌"
+msgstr ""
 
 #: ../../source/getting_started/kv_cache_calculator.rst:9
 msgid "This helps you plan memory requirements for your LMCache deployment."
-msgstr "这可以帮助您规划 LMCache 部署的内存需求。"
+msgstr ""
 

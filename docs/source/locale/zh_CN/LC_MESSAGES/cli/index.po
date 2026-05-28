@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LMCache \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-18 17:25+0000\n"
+"POT-Creation-Date: 2026-05-28 17:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -21,83 +21,91 @@ msgstr ""
 
 #: ../../source/cli/index.rst:2
 msgid "CLI Reference"
-msgstr "CLI 参考"
+msgstr ""
 
 #: ../../source/cli/index.rst:4
 msgid ""
 "The ``lmcache`` command-line interface provides tools for managing and "
 "inspecting LMCache servers."
-msgstr "``lmcache`` 命令行接口提供了管理和检查 LMCache 服务器的工具。"
+msgstr ""
 
 #: ../../source/cli/index.rst:11
 msgid ""
 "After installing LMCache, the ``lmcache`` command is available globally. "
 "Run ``lmcache -h`` to see all commands."
-msgstr "安装 LMCache 后，``lmcache`` 命令可以全局使用。运行 ``lmcache -h`` 查看所有命令。"
+msgstr ""
 
 #: ../../source/cli/index.rst:15
 msgid "Available Commands"
-msgstr "可用命令"
+msgstr ""
 
 #: ../../source/cli/index.rst:21
 msgid "Command"
-msgstr "命令"
+msgstr ""
 
 #: ../../source/cli/index.rst:22
 msgid "Description"
-msgstr "描述"
+msgstr ""
 
 #: ../../source/cli/index.rst:23
 msgid "``describe``"
-msgstr "``describe``"
+msgstr ""
 
 #: ../../source/cli/index.rst:24
 msgid "Show detailed status of a running LMCache service."
-msgstr "显示正在运行的 LMCache 服务的详细状态。"
+msgstr ""
 
 #: ../../source/cli/index.rst:25
 msgid "``query``"
-msgstr "``query``"
+msgstr ""
 
 #: ../../source/cli/index.rst:26
 msgid "Single-shot query interface for the serving engine."
-msgstr "服务引擎的单次查询接口。"
+msgstr ""
 
 #: ../../source/cli/index.rst:27
 msgid "``ping``"
-msgstr "``ping``"
+msgstr ""
 
 #: ../../source/cli/index.rst:28
 msgid "Liveness check for LMCache or vLLM servers."
-msgstr "对 LMCache 或 vLLM 服务器的存活检查。"
+msgstr ""
 
 #: ../../source/cli/index.rst:29
 msgid "``bench``"
-msgstr "``bench``"
+msgstr ""
 
 #: ../../source/cli/index.rst:30
 msgid ""
-"Run sustained performance benchmarks against an inference engine, or an "
-"end-to-end sanity test against an LMCache MP server."
-msgstr "对推理引擎运行持续性能基准测试，或对 LMCache MP 服务器进行端到端的完整性测试。"
-
-#: ../../source/cli/index.rst:32
-msgid "``kvcache``"
-msgstr "``kvcache``"
+"Run sustained performance benchmarks against an inference engine, an end-"
+"to-end sanity test against an LMCache MP server, or a throughput/latency "
+"benchmark against an L2 cache adapter."
+msgstr ""
 
 #: ../../source/cli/index.rst:33
-msgid "Manage KV cache state (e.g. clear L1 cache)."
-msgstr "管理 KV Cache 状态（例如，清除 L1 缓存）。"
+msgid "``kvcache``"
+msgstr ""
 
 #: ../../source/cli/index.rst:34
-msgid "``server``"
-msgstr "``server``"
+msgid "Manage KV cache state (e.g. clear L1 cache)."
+msgstr ""
 
 #: ../../source/cli/index.rst:35
-msgid "Launch the LMCache server (ZMQ + HTTP)."
-msgstr "启动 LMCache 服务器（ZMQ + HTTP）。"
+msgid "``server``"
+msgstr ""
 
-#: ../../source/cli/index.rst:37
+#: ../../source/cli/index.rst:36
+msgid "Launch the LMCache server (ZMQ + HTTP)."
+msgstr ""
+
+#: ../../source/cli/index.rst:38
 msgid "For a comprehensive guide with examples, see :doc:`/getting_started/cli`."
-msgstr "有关带有示例的全面指南，请参见 :doc:`/getting_started/cli`。"
+msgstr ""
+
+#~ msgid ""
+#~ "Run sustained performance benchmarks against"
+#~ " an inference engine, or an end-"
+#~ "to-end sanity test against an "
+#~ "LMCache MP server."
+#~ msgstr ""
 
