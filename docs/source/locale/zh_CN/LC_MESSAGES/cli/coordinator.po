@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LMCache \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-22 11:07+0000\n"
+"POT-Creation-Date: 2026-06-29 13:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -131,7 +131,7 @@ msgstr "``--blend-chunk-size N``"
 msgid ""
 "Tokens per chunk for the global CacheBlend directory; must equal the "
 "LMCache chunk size the blend servers use (default: ``256``)."
-msgstr "全局 CacheBlend 目录中每个块的令牌数；必须等于混合服务器使用的 LMCache 块大小（默认值：``256``）。"
+msgstr "用于全局 CacheBlend 目录的每个块的 token 数；必须等于混合服务器使用的 LMCache 块大小（默认值：``256``）。"
 
 #: ../../source/cli/coordinator.rst:57
 msgid "``--blend-probe-stride N``"
@@ -141,7 +141,7 @@ msgstr "``--blend-probe-stride N``"
 msgid ""
 "Positions between CacheBlend match probes; ``1`` probes every offset for "
 "full recall (default: ``1``)."
-msgstr "在 CacheBlend 匹配探测之间的位置；``1`` 在每个偏移量处探测以实现完全回忆（默认值：``1``）。"
+msgstr "在 CacheBlend 匹配探测之间的位置；``1`` 表示每个偏移进行探测以实现完全召回（默认值：``1``）。"
 
 #: ../../source/cli/coordinator.rst:62
 msgid "Configuration"
@@ -156,7 +156,7 @@ msgid ""
 "``BLEND_CHUNK_SIZE``, ``BLEND_PROBE_STRIDE``), and then to the built-in "
 "defaults. A supplied flag always overrides the matching env-derived "
 "value, so env-only deployments keep working unchanged."
-msgstr "每个标志都是可选的。未设置的标志会回退到 ``LMCACHE_MP_COORDINATOR_*`` 环境变量（``HOST``、``PORT``、``INSTANCE_TIMEOUT``、``HEALTH_CHECK_INTERVAL``、``EVICTION_CHECK_INTERVAL``、``EVICTION_RATIO``、``TRIGGER_WATERMARK``、``BLEND_CHUNK_SIZE``、``BLEND_PROBE_STRIDE``），然后再回退到内置默认值。提供的标志始终会覆盖匹配的环境派生值，因此仅使用环境的部署保持不变。"
+msgstr "每个标志都是可选的。未设置的标志将回退到 ``LMCACHE_MP_COORDINATOR_*`` 环境变量（``HOST``、``PORT``、``INSTANCE_TIMEOUT``、``HEALTH_CHECK_INTERVAL``、``EVICTION_CHECK_INTERVAL``、``EVICTION_RATIO``、``TRIGGER_WATERMARK``、``BLEND_CHUNK_SIZE``、``BLEND_PROBE_STRIDE``），然后是内置默认值。提供的标志总是会覆盖匹配的环境派生值，因此仅环境部署可以保持不变地工作。"
 
 #: ../../source/cli/coordinator.rst:72
 msgid ""
@@ -167,7 +167,7 @@ msgid ""
 "``LMCACHE_MP_COORDINATOR_RESYNC_PAGE_SIZE`` (``1000``). See "
 ":doc:`/mp/coordinator` for the boot-time resync flow and the active "
 "eviction loop."
-msgstr "第二组仅环境的控制选项控制启动 L2 重新同步 — ``LMCACHE_MP_COORDINATOR_ENABLE_STARTUP_RESYNC``（默认 ``True``）、``LMCACHE_MP_COORDINATOR_RESYNC_POLL_INTERVAL``（``1``）、``LMCACHE_MP_COORDINATOR_RESYNC_MAX_WAIT``（``60``）和 ``LMCACHE_MP_COORDINATOR_RESYNC_PAGE_SIZE``（``1000``）。有关启动时重新同步流程和活动逐出循环，请参见 :doc:`/mp/coordinator`。"
+msgstr "第二组仅环境变量的控制项用于启动时的 L2 重新同步——``LMCACHE_MP_COORDINATOR_ENABLE_STARTUP_RESYNC``（默认值为 ``True``）、``LMCACHE_MP_COORDINATOR_RESYNC_POLL_INTERVAL``（``1``）、``LMCACHE_MP_COORDINATOR_RESYNC_MAX_WAIT``（``60``）和 ``LMCACHE_MP_COORDINATOR_RESYNC_PAGE_SIZE``（``1000``）。有关启动时重新同步流程和主动逐出循环的信息，请参见 :doc:`/mp/coordinator`。"
 
 #: ../../source/cli/coordinator.rst:80
 msgid ""
@@ -175,7 +175,7 @@ msgid ""
 " ``DELETE /l2`` endpoint, and resync paginates ``GET /l2/keys`` on a "
 "registered MP server. Both endpoints are documented at :ref:`mp-http-l2"
 "-keys-api`."
-msgstr "协调器通过调用每个 MP 服务器的 ``DELETE /l2`` 端点来驱动全队列的 L2 逐出，并且 resync 在注册的 MP 服务器上对 ``GET /l2/keys`` 进行分页。这两个端点的文档见 :ref:`mp-http-l2-keys-api`。"
+msgstr "协调器通过调用每个 MP 服务器的 ``DELETE /l2`` 端点来驱动整个集群的 L2 逐出，并在注册的 MP 服务器上通过分页 ``GET /l2/keys`` 进行重新同步。两个端点的文档请参见 :ref:`mp-http-l2-keys-api`。"
 
 #: ../../source/cli/coordinator.rst:85
 msgid ""

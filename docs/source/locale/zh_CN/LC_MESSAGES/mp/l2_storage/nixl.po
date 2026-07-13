@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LMCache \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-17 02:35+0000\n"
+"POT-Creation-Date: 2026-06-22 14:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -28,20 +28,20 @@ msgid ""
 "NIXL-based persistent storage — the primary production L2 backend, using "
 "NIXL (NVIDIA Interconnect Library) for high-performance storage I/O. Two "
 "adapter types share this backend:"
-msgstr "基于 NIXL 的持久存储 — 主要的生产 L2 后端，使用 NIXL（NVIDIA 互连库）进行高性能存储 I/O。两种适配器类型共享此后端："
+msgstr "基于 NIXL 的持久化存储——主要的生产 L2 后端，使用 NIXL（NVIDIA Interconnect Library）进行高性能存储 I/O。两种适配器类型共享此后端："
 
 #: ../../source/mp/l2_storage/nixl.rst:8
 msgid ""
 "``nixl_store`` — a fixed pool of storage descriptors pre-allocated at "
 "init."
-msgstr "``nixl_store`` — 在初始化时预分配的固定存储描述符池。"
+msgstr "``nixl_store`` — 在初始化时预先分配的固定存储描述符池。"
 
 #: ../../source/mp/l2_storage/nixl.rst:9
 msgid ""
 "``nixl_store_dynamic`` — opens and registers files per operation, adding "
 "persist/recover across restarts and removing the open-file-descriptor "
 "limit."
-msgstr "``nixl_store_dynamic`` — 每次操作打开并注册文件，增加持久化/恢复功能，跨重启并移除打开文件描述符限制。"
+msgstr "``nixl_store_dynamic`` — 每次操作时打开并注册文件，增加了跨重启的持久化/恢复功能，并移除了打开文件描述符的限制。"
 
 #: ../../source/mp/l2_storage/nixl.rst:13
 msgid "Static pool — ``nixl_store``"
@@ -51,7 +51,7 @@ msgstr "静态池 — ``nixl_store``"
 msgid ""
 "The primary production adapter. Pre-allocates a pool of storage "
 "descriptors at initialization."
-msgstr "主要的生产适配器。在初始化时预分配一池存储描述符。"
+msgstr "主要生产适配器。在初始化时预分配一组存储描述符。"
 
 #: ../../source/mp/l2_storage/nixl.rst:18
 #: ../../source/mp/l2_storage/nixl.rst:92
@@ -62,26 +62,26 @@ msgstr "**必填字段：**"
 msgid ""
 "``backend``: Storage backend -- one of ``POSIX``, ``GDS``, ``GDS_MT``, "
 "``HF3FS``, ``OBJ``, ``AZURE_BLOB``."
-msgstr "``backend``: 存储后端 -- 其中之一为 ``POSIX``, ``GDS``, ``GDS_MT``, ``HF3FS``, ``OBJ``, ``AZURE_BLOB``。"
+msgstr "``backend``：存储后端 -- 可以是 ``POSIX``、``GDS``、``GDS_MT``、``HF3FS``、``OBJ``、``AZURE_BLOB`` 之一。"
 
 #: ../../source/mp/l2_storage/nixl.rst:22
 msgid ""
 "``pool_size``: Number of storage descriptors to pre-allocate (must be > "
 "0)."
-msgstr "``pool_size``: 预分配的存储描述符数量（必须大于 0）。"
+msgstr "“``pool_size``: 要预先分配的存储描述符数量（必须大于 0）。”"
 
 #: ../../source/mp/l2_storage/nixl.rst:24
 #: ../../source/mp/l2_storage/nixl.rst:97
 msgid "**Backend-specific parameters (``backend_params``):**"
-msgstr "**后端特定参数 (``backend_params``):**"
+msgstr "**特定后端参数（``backend_params``）：**"
 
 #: ../../source/mp/l2_storage/nixl.rst:26
 msgid "File-based backends (``GDS``, ``GDS_MT``, ``POSIX``, ``HF3FS``) require:"
-msgstr "基于文件的后端（``GDS``, ``GDS_MT``, ``POSIX``, ``HF3FS``）需要："
+msgstr "基于文件的后端（``GDS``、``GDS_MT``、``POSIX``、``HF3FS``）需要："
 
 #: ../../source/mp/l2_storage/nixl.rst:28
 msgid "``file_path``: Directory path for storing L2 data."
-msgstr "``file_path``: 存储 L2 数据的目录路径。"
+msgstr "用于存储 L2 数据的目录路径。"
 
 #: ../../source/mp/l2_storage/nixl.rst:29
 msgid ""
@@ -109,33 +109,33 @@ msgstr "描述"
 
 #: ../../source/mp/l2_storage/nixl.rst:41
 msgid "``POSIX``"
-msgstr "``POSIX``"
+msgstr "POSIX"
 
 #: ../../source/mp/l2_storage/nixl.rst:42
 msgid "Standard POSIX file I/O.  Works on any file system.  No direct I/O."
-msgstr "标准 POSIX 文件 I/O。适用于任何文件系统。无直接 I/O。"
+msgstr "标准 POSIX 文件 I/O。适用于任何文件系统。不支持直接 I/O。"
 
 #: ../../source/mp/l2_storage/nixl.rst:43
 msgid "``GDS``"
-msgstr "``GDS``"
+msgstr "GDS"
 
 #: ../../source/mp/l2_storage/nixl.rst:44
 msgid ""
 "NVIDIA GPU Direct Storage.  Enables direct GPU-to-storage transfers "
 "bypassing the CPU.  Requires NVMe SSDs with GDS support."
-msgstr "NVIDIA GPU 直接存储。启用直接的 GPU 到存储传输，绕过 CPU。需要支持 GDS 的 NVMe SSD。"
+msgstr "NVIDIA GPU Direct 存储。启用直接 GPU 到存储的传输，绕过 CPU。需要支持 GDS 的 NVMe SSD。"
 
 #: ../../source/mp/l2_storage/nixl.rst:46
 msgid "``GDS_MT``"
-msgstr "``GDS_MT``"
+msgstr "GDS_MT"
 
 #: ../../source/mp/l2_storage/nixl.rst:47
 msgid "Multi-threaded variant of GDS for higher throughput."
-msgstr "GDS 的多线程变体，以提高吞吐量。"
+msgstr "GDS 的多线程变体以提高吞吐量。"
 
 #: ../../source/mp/l2_storage/nixl.rst:48
 msgid "``HF3FS``"
-msgstr "``HF3FS``"
+msgstr "HF3FS"
 
 #: ../../source/mp/l2_storage/nixl.rst:49
 msgid "Shared file system backend (e.g., for distributed/networked storage)."
@@ -147,15 +147,15 @@ msgstr "``OBJ``"
 
 #: ../../source/mp/l2_storage/nixl.rst:51
 msgid "Object store backend.  No local file path required."
-msgstr "对象存储后端。无需本地文件路径。"
+msgstr "对象存储后端。不需要本地文件路径。"
 
 #: ../../source/mp/l2_storage/nixl.rst:52
 msgid "``AZURE_BLOB``"
-msgstr "``AZURE_BLOB``"
+msgstr "AZURE_BLOB"
 
 #: ../../source/mp/l2_storage/nixl.rst:53
 msgid "Object store backend for Azure Blob Storage.  No local file path required."
-msgstr "Azure Blob Storage 的对象存储后端。无需本地文件路径。"
+msgstr "适用于 Azure Blob 存储的对象存储后端。不需要本地文件路径。"
 
 #: ../../source/mp/l2_storage/nixl.rst:55
 #: ../../source/mp/l2_storage/nixl.rst:114
@@ -164,13 +164,13 @@ msgstr "**配置示例：**"
 
 #: ../../source/mp/l2_storage/nixl.rst:78
 msgid "Dynamic (persist / recover) — ``nixl_store_dynamic``"
-msgstr "动态（持久/恢复） — ``nixl_store_dynamic``"
+msgstr "动态（持久化/恢复）— ``nixl_store_dynamic``"
 
 #: ../../source/mp/l2_storage/nixl.rst:80
 msgid ""
 "A dynamic variant of the NIXL adapter that opens and registers files per-"
 "operation instead of pre-allocating them at init. This enables:"
-msgstr "NIXL 适配器的动态变体，按操作打开和注册文件，而不是在初始化时预分配。这使得："
+msgstr "NIXL 适配器的动态变体，在每次操作时打开和注册文件，而不是在初始化时预先分配。这使得以下成为可能："
 
 #: ../../source/mp/l2_storage/nixl.rst:83
 msgid "**Persist/recover** -- cached KV metadata survives restarts."
@@ -180,24 +180,24 @@ msgstr "**持久化/恢复** -- 缓存的 KV 元数据在重启后仍然存在�
 msgid ""
 "**No fd limits** -- files are opened and closed per transfer, so the "
 "cache can grow beyond OS open-file-descriptor limits."
-msgstr "**无文件描述符限制** -- 文件在每次传输时打开和关闭，因此缓存可以超出操作系统的打开文件描述符限制。"
+msgstr "**无文件描述符限制** -- 文件在每次传输时打开和关闭，因此缓存可以增长到超过操作系统的打开文件描述符限制。"
 
 #: ../../source/mp/l2_storage/nixl.rst:89
 msgid ""
 "Only file-based backends are supported (``POSIX``, ``GDS``, ``GDS_MT``, "
 "``HF3FS``). The ``OBJ`` and ``AZURE_BLOB`` backends are not supported "
 "yet."
-msgstr "仅支持基于文件的后端（``POSIX``, ``GDS``, ``GDS_MT``, ``HF3FS``）。``OBJ`` 和 ``AZURE_BLOB`` 后端尚不支持。"
+msgstr "仅支持基于文件的后端（``POSIX``、``GDS``、``GDS_MT``、``HF3FS``）。``OBJ`` 和 ``AZURE_BLOB`` 后端尚不支持。"
 
 #: ../../source/mp/l2_storage/nixl.rst:94
 msgid ""
 "``backend``: Storage backend -- one of ``POSIX``, ``GDS``, ``GDS_MT``, "
 "``HF3FS``."
-msgstr "``backend``: 存储后端 -- 其中之一为 ``POSIX``, ``GDS``, ``GDS_MT``, ``HF3FS``。"
+msgstr "``backend``：存储后端 -- 选择 ``POSIX``、``GDS``、``GDS_MT``、``HF3FS`` 之一。"
 
 #: ../../source/mp/l2_storage/nixl.rst:99
 msgid "``file_path``: Directory path for storing L2 data files."
-msgstr "``file_path``: 存储 L2 数据文件的目录路径。"
+msgstr "用于存储 L2 数据文件的目录路径。"
 
 #: ../../source/mp/l2_storage/nixl.rst:100
 msgid "``use_direct_io``: ``\"true\"`` or ``\"false\"``."
@@ -208,7 +208,7 @@ msgid ""
 "``max_capacity_gb``: Maximum storage capacity in GB. The adapter rejects "
 "stores when this limit is reached. Required for the eviction controller "
 "to compute usage."
-msgstr "``max_capacity_gb``: 最大存储容量（以 GB 为单位）。当达到此限制时，适配器会拒绝存储。此项是逐出控制器计算使用情况所必需的。"
+msgstr "``max_capacity_gb``：最大存储容量（单位：GB）。当达到此限制时，适配器将拒绝存储。逐出控制器需要此参数来计算使用情况。"
 
 #: ../../source/mp/l2_storage/nixl.rst:105
 msgid "**Optional fields (for persist):**"
@@ -219,24 +219,24 @@ msgid ""
 "``persist_enabled`` (bool, default ``true``): If ``true``, data files are"
 " kept on disk at shutdown. If ``false``, all data files are deleted on "
 "shutdown."
-msgstr "``persist_enabled`` (bool, 默认 ``true``): 如果 ``true``，数据文件将在关闭时保留在磁盘上。如果 ``false``，所有数据文件将在关闭时被删除。"
+msgstr "``persist_enabled``（布尔值，默认为 ``true``）：如果为 ``true``，在关闭时数据文件会保留在磁盘上。如果为 ``false``，在关闭时所有数据文件都会被删除。"
 
 #: ../../source/mp/l2_storage/nixl.rst:111
 msgid ""
 "Lookup always checks secondary storage (disk) on miss and lazily "
 "populates the in-memory index when a file is found."
-msgstr "查找总是在未命中时检查二级存储（磁盘），并在找到文件时懒惰地填充内存中的索引。"
+msgstr "查找在缓存未命中时总是检查二级存储（磁盘），并在找到文件时懒加载到内存索引中。"
 
 #: ../../source/mp/l2_storage/nixl.rst:127
 msgid "**Persist / secondary lookup behaviour:**"
-msgstr "**持久化 / 二级查找行为:**"
+msgstr "**持久化/二级查找行为：**"
 
 #: ../../source/mp/l2_storage/nixl.rst:129
 msgid ""
 "On **shutdown**, the adapter keeps data files on disk by default "
 "(``persist_enabled`` defaults to ``true``). If explicitly set to "
 "``false``, all data files are deleted to avoid orphaned storage."
-msgstr "在 **关闭** 时，适配器默认将数据文件保留在磁盘上（``persist_enabled`` 默认为 ``true``）。如果明确设置为 ``false``，则所有数据文件将被删除，以避免孤立存储。"
+msgstr "在**关闭**时，适配器默认会将数据文件保留在磁盘上（``persist_enabled`` 默认为 ``true``）。如果显式设置为 ``false``，则会删除所有数据文件以避免孤立存储。"
 
 #: ../../source/mp/l2_storage/nixl.rst:132
 msgid ""
@@ -244,5 +244,5 @@ msgid ""
 "through to a secondary lookup on disk: if the deterministic file exists, "
 "it is treated as a hit and the in-memory index is populated lazily from "
 "the file size."
-msgstr "在 **启动** 时，内存中的索引是空的。每次查找未命中都会转到磁盘上的二次查找：如果确定性文件存在，则将其视为命中，并根据文件大小懒惰地填充内存中的索引。"
+msgstr "在**启动**时，内存中的索引是空的。每次查找未命中都会转而进行磁盘上的二次查找：如果确定性文件存在，则视为命中，并从文件大小懒加载填充内存索引。"
 

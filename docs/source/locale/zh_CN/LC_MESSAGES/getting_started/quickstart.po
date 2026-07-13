@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LMCache \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-17 02:35+0000\n"
+"POT-Creation-Date: 2026-06-22 14:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -76,7 +76,7 @@ msgid ""
 "frontend (default **8080**) serves the management and metrics endpoints. "
 "See :doc:`../mp/configuration` for the full list of ``lmcache server`` "
 "and connector options."
-msgstr "ZMQ 端口（默认 **5555**）接受来自 vLLM 的连接；HTTP 前端（默认 **8080**）提供管理和指标端点。有关 ``lmcache server`` 和连接器选项的完整列表，请参见 :doc:`../mp/configuration`。"
+msgstr "ZMQ 端口（默认 **5555**）接受来自 vLLM 的连接；HTTP 前端（默认 **8080**）提供管理和指标端点。完整的 ``lmcache server`` 和连接器选项列表，请参见 :doc:`../mp/configuration`。"
 
 #: ../../source/getting_started/quickstart.rst:52
 msgid "Start vLLM with the MP connector in a separate terminal:"
@@ -164,7 +164,7 @@ msgstr "**第二个请求** -- 共享前缀从 CPU 内存中检索；只有新�
 msgid ""
 "For request-level statistics (hit ratio, bytes transferred) see "
 ":doc:`../mp/observability/index`."
-msgstr "有关请求级统计信息（命中率、传输字节数），请参见 :doc:`../mp/observability/index`。"
+msgstr "有关请求级别统计信息（命中率、传输字节数），请参阅 :doc:`../mp/observability/index`。"
 
 #: ../../source/getting_started/quickstart.rst
 msgid "In-process mode"
@@ -408,7 +408,7 @@ msgstr "更多 MP 服务器选项"
 msgid ""
 "The vLLM MP example above runs ``lmcache server`` locally on the default "
 "ports. Common variations:"
-msgstr "上述的 vLLM MP 示例在默认端口上本地运行 ``lmcache server``。常见变体："
+msgstr "上面的 vLLM MP 示例在默认端口上本地运行 ``lmcache server``。常见变体："
 
 #: ../../source/getting_started/quickstart.rst:442
 msgid ""
@@ -424,7 +424,7 @@ msgid ""
 "shares KV tensors with vLLM over POSIX shared memory. Start ``lmcache "
 "server`` normally, then set ``lmcache.mp.mp_transfer_mode=engine_driven``"
 " on the vLLM side to enable the zero-copy SHM path."
-msgstr "**仅 CPU（无 GPU）** -- 服务器使用 ``StubCPUDevice`` 运行，并通过 POSIX 共享内存与 vLLM 共享 KV 张量。正常启动 ``lmcache server``，然后在 vLLM 端设置 ``lmcache.mp.mp_transfer_mode=engine_driven`` 以启用零拷贝 SHM 路径。"
+msgstr "**仅使用 CPU（无 GPU）** -- 服务器运行在 ``StubCPUDevice`` 上，并通过 POSIX 共享内存与 vLLM 共享 KV 张量。正常启动 ``lmcache server``，然后在 vLLM 端设置 ``lmcache.mp.mp_transfer_mode=engine_driven`` 以启用零拷贝 SHM 路径。"
 
 #: ../../source/getting_started/quickstart.rst:457
 msgid "**Docker** -- see :doc:`../production/docker_deployment`."
@@ -434,7 +434,7 @@ msgstr "**Docker** -- 请参阅 :doc:`../production/docker_deployment`。"
 msgid ""
 "**HTTP management endpoints** (health, clear-cache, status) -- see "
 ":doc:`../mp/http_api`."
-msgstr "**HTTP 管理端点**（健康检查、清除缓存、状态）-- 请参见 :doc:`../mp/http_api`。"
+msgstr "**HTTP 管理端点**（健康检查、清除缓存、状态）-- 请参阅 :doc:`../mp/http_api`。"
 
 #: ../../source/getting_started/quickstart.rst:463
 msgid "Next Steps"
@@ -451,7 +451,7 @@ msgstr "**性能测试**：尝试 :doc:`benchmarking` 部分，以体验 LMCache
 msgid ""
 "**Production**: Deploy LMCache with Docker or Kubernetes, plus "
 "observability and tuning -- see :doc:`../mp/deployment`"
-msgstr "**生产**：使用 Docker 或 Kubernetes 部署 LMCache，并进行可观察性和调优 -- 请参阅 :doc:`../mp/deployment`。"
+msgstr "**生产环境**：使用 Docker 或 Kubernetes 部署 LMCache，并进行可观测性和调优——请参阅 :doc:`../mp/deployment`"
 
 #~ msgid ""
 #~ "**More Examples**: Explore the "

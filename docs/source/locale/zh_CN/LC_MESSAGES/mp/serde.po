@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LMCache \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-17 02:35+0000\n"
+"POT-Creation-Date: 2026-06-29 13:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -112,25 +112,106 @@ msgstr ""
 "``fp8_dtype``（默认 ``float8_e4m3fn``；也接受 "
 "``float8_e5m2``），``max_workers``（线程池大小，默认 1）"
 
+#: ../../source/mp/serde.rst:61
+msgid "``turboquant``"
+msgstr "``turboquant``"
+
+#: ../../source/mp/serde.rst:62
+msgid ""
+"Compress KV tensors with TurboQuant presets before L2 store and "
+"reconstruct them on load."
+msgstr "在 L2 存储之前使用 TurboQuant 预设压缩 KV 张量，并在加载时重建它们。"
+
 #: ../../source/mp/serde.rst:64
+msgid ""
+"``preset`` (default ``turboquant_k8v4``), ``head_dim`` (optional, default"
+" 128), ``block_size`` (default 16), ``max_workers`` (thread pool size, "
+"default 1)"
+msgstr "``preset``（默认值为``turboquant_k8v4``），``head_dim``（可选，默认值为128），``block_size``（默认值为16），``max_workers``（线程池大小，默认值为1）"
+
+#: ../../source/mp/serde.rst:70
+msgid "TurboQuant serde"
+msgstr "TurboQuant 序列化/反序列化"
+
+#: ../../source/mp/serde.rst:72
+msgid ""
+"TurboQuant serde can be enabled by setting ``\"type\": \"turboquant\"`` "
+"in the adapter serde config. If ``preset`` is omitted, TurboQuant serde "
+"defaults to ``turboquant_k8v4``."
+msgstr "可以通过在适配器序列化配置中设置 ``\"type\": \"turboquant\"`` 来启用 TurboQuant 序列化。如果省略 ``preset``，TurboQuant 序列化默认为 ``turboquant_k8v4``。"
+
+#: ../../source/mp/serde.rst:91
+msgid "Supported presets:"
+msgstr "支持的预设："
+
+#: ../../source/mp/serde.rst:97
+msgid "Preset"
+msgstr "预设"
+
+#: ../../source/mp/serde.rst:98
+msgid "Key path"
+msgstr "键路径"
+
+#: ../../source/mp/serde.rst:99
+msgid "Value path"
+msgstr "值路径"
+
+#: ../../source/mp/serde.rst:100
+msgid "``turboquant_k8v4``"
+msgstr "``turboquant_k8v4``"
+
+#: ../../source/mp/serde.rst:101
+msgid "FP8 key"
+msgstr "FP8 密钥"
+
+#: ../../source/mp/serde.rst:102 ../../source/mp/serde.rst:105
+#: ../../source/mp/serde.rst:108
+msgid "4-bit value quantization"
+msgstr "4 位值量化"
+
+#: ../../source/mp/serde.rst:103
+msgid "``turboquant_4bit_nc``"
+msgstr "turboquant_4bit_nc"
+
+#: ../../source/mp/serde.rst:104
+msgid "4-bit MSE key with norm correction"
+msgstr "4-bit MSE 键与规范校正"
+
+#: ../../source/mp/serde.rst:106
+msgid "``turboquant_k3v4_nc``"
+msgstr "``turboquant_k3v4_nc``"
+
+#: ../../source/mp/serde.rst:107 ../../source/mp/serde.rst:110
+msgid "3-bit MSE key with norm correction"
+msgstr "3 位 MSE 键，带规范校正"
+
+#: ../../source/mp/serde.rst:109
+msgid "``turboquant_3bit_nc``"
+msgstr "turboquant_3bit_nc"
+
+#: ../../source/mp/serde.rst:111
+msgid "3-bit value quantization"
+msgstr "3 位值量化"
+
+#: ../../source/mp/serde.rst:115
 msgid "Writing a custom serde"
 msgstr "编写自定义序列化/反序列化"
 
-#: ../../source/mp/serde.rst:66
+#: ../../source/mp/serde.rst:117
 msgid ""
 "Implement the two sync ABCs (``Serializer``, ``Deserializer``) with your "
 "transform logic, then register a factory keyed on a name you pick:"
 msgstr "实现两个同步 ABC（``Serializer``，``Deserializer``），并使用您的转换逻辑，然后注册一个以您选择的名称为键的工厂："
 
-#: ../../source/mp/serde.rst:98
+#: ../../source/mp/serde.rst:149
 msgid "Reference it from your adapter config:"
 msgstr "从你的适配器配置中引用它："
 
-#: ../../source/mp/serde.rst:106
+#: ../../source/mp/serde.rst:157
 msgid "Notes"
 msgstr "备注"
 
-#: ../../source/mp/serde.rst:108
+#: ../../source/mp/serde.rst:159
 msgid ""
 "**Buffer size.** ``estimate_serialized_size(layout)`` must return an "
 "upper bound on the actual serialized output — include any safety margin "
@@ -140,7 +221,7 @@ msgstr ""
 "**缓冲区大小。** ``estimate_serialized_size(layout)`` 必须返回实际序列化输出的上限 — "
 "直接在估算中包含任何安全边际（例如，内置的 fp8 序列化器返回 ``1.5 * num_elements``）。"
 
-#: ../../source/mp/serde.rst:112
+#: ../../source/mp/serde.rst:163
 msgid ""
 "**Failure handling.** If any step fails (serialize, store, load, or "
 "deserialize), the whole submitted batch is reported as failed — partial "
@@ -150,7 +231,7 @@ msgstr ""
 "**失败处理。** "
 "如果任何步骤失败（序列化、存储、加载或反序列化），则整个提交的批次将被报告为失败——在一个批次内的部分成功不会被显示。失败的键会自动清理。"
 
-#: ../../source/mp/serde.rst:116
+#: ../../source/mp/serde.rst:167
 msgid ""
 "**Thread pool.** ``AsyncSerdeProcessor(max_workers=N)`` controls the pool"
 " size. Transforms that release the GIL (e.g., torch ops) benefit from ``N"
@@ -159,11 +240,11 @@ msgstr ""
 "**线程池。** ``AsyncSerdeProcessor(max_workers=N)`` "
 "控制池的大小。释放全局解释器锁（GIL）的变换（例如，torch 操作）可以从 ``N > 1`` 中受益；纯 Python 变换则不然。"
 
-#: ../../source/mp/serde.rst:122
+#: ../../source/mp/serde.rst:173
 msgid "Example"
 msgstr "示例"
 
-#: ../../source/mp/serde.rst:124
+#: ../../source/mp/serde.rst:175
 msgid ""
 "An end-to-end script that starts an lmcache server with fp8 on a disk "
 "adapter, runs vLLM, clears L1, and re-runs the same request to trigger "
@@ -176,15 +257,15 @@ msgstr ""
 " 预取 + fp8 反序列化路径，位于 :file:`examples/serde/fp8/`。一个基于 pytest 的文件系统往返测试（不需要"
 " vLLM）位于 :file:`tests/v1/distributed/serde/test_serde_fs_e2e.py`。"
 
-#: ../../source/mp/serde.rst:132
+#: ../../source/mp/serde.rst:183
 msgid "Compression methods"
 msgstr "压缩方法"
 
-#: ../../source/mp/serde.rst:134
+#: ../../source/mp/serde.rst:185
 msgid ""
 "Higher-level KV cache compression methods layered on top of the per-"
 "adapter serde mechanism:"
-msgstr "基于每个适配器序列化机制之上的更高级别 KV Cache 压缩方法："
+msgstr "基于每个适配器序列化机制之上的高级 KV Cache 压缩方法："
 
 #~ msgid "L2 Serde (Serialization / Deserialization)"
 #~ msgstr "L2 序列化（Serialization / Deserialization）"

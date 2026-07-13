@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LMCache \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-17 02:35+0000\n"
+"POT-Creation-Date: 2026-06-22 14:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -31,11 +31,11 @@ msgid ""
 "FastAPI ``APIRouter``; ``HTTPAPIRegistry`` auto-discovers and mounts it "
 "at startup -- the same zero-modification pattern used by the :doc:`L2 "
 "adapters </mp/l2_storage/index>`."
-msgstr "您可以向 ``lmcache server`` HTTP 前端添加新的端点 **而无需修改任何现有代码**。端点只是放置在 ``lmcache/v1/multiprocess/http_apis/`` 中的 Python 模块，它暴露了一个 FastAPI ``APIRouter``；``HTTPAPIRegistry`` 在启动时自动发现并挂载它——与 :doc:`L2 adapters </mp/l2_storage/index>` 使用的零修改模式相同。"
+msgstr "您可以在**不修改任何现有代码**的情况下，为 ``lmcache server`` HTTP 前端添加新的端点。端点只是一个放置在 ``lmcache/v1/multiprocess/http_apis/`` 中的 Python 模块，该模块公开一个 FastAPI ``APIRouter``；``HTTPAPIRegistry`` 会在启动时自动发现并挂载它——这与 :doc:`L2 adapters </mp/l2_storage/index>` 使用的零修改模式相同。"
 
 #: ../../source/developer_guide/extending_http_api.rst:12
 msgid "How discovery works"
-msgstr "发现是如何工作的"
+msgstr "发现机制如何运作"
 
 #: ../../source/developer_guide/extending_http_api.rst:14
 msgid ""
@@ -44,7 +44,7 @@ msgid ""
 "which scans the ``http_apis/`` directory with ``pkgutil``, imports every "
 "module whose name ends with ``_api``, and includes any module-level "
 "``router``. The built-in modules follow this pattern:"
-msgstr "在启动时，``http_server.py`` 将 FastAPI 应用程序交给 ``HTTPAPIRegistry``（``lmcache/v1/multiprocess/http_api_registry.py``），该注册器使用 ``pkgutil`` 扫描 ``http_apis/`` 目录，导入所有名称以 ``_api`` 结尾的模块，并包含任何模块级的 ``router``。内置模块遵循此模式："
+msgstr "启动时，``http_server.py`` 将 FastAPI 应用交给 ``HTTPAPIRegistry``（``lmcache/v1/multiprocess/http_api_registry.py``），它使用 ``pkgutil`` 扫描 ``http_apis/`` 目录，导入每个名称以 ``_api`` 结尾的模块，并包含任何模块级别的 ``router``。内置模块遵循此模式："
 
 #: ../../source/developer_guide/extending_http_api.rst:24
 msgid "Module"
@@ -64,17 +64,17 @@ msgstr "描述"
 
 #: ../../source/developer_guide/extending_http_api.rst:28
 msgid "``root_api.py``"
-msgstr "``root_api.py``"
+msgstr "root_api.py"
 
 #: ../../source/developer_guide/extending_http_api.rst:29
 msgid "``/``"
-msgstr "``/``"
+msgstr "/"
 
 #: ../../source/developer_guide/extending_http_api.rst:30
 #: ../../source/developer_guide/extending_http_api.rst:34
 #: ../../source/developer_guide/extending_http_api.rst:42
 msgid "GET"
-msgstr "获取"
+msgstr "GET"
 
 #: ../../source/developer_guide/extending_http_api.rst:31
 msgid "Basic liveness check"
@@ -82,7 +82,7 @@ msgstr "基本存活检查"
 
 #: ../../source/developer_guide/extending_http_api.rst:32
 msgid "``healthcheck_api.py``"
-msgstr "``healthcheck_api.py``"
+msgstr "healthcheck_api.py"
 
 #: ../../source/developer_guide/extending_http_api.rst:33
 msgid "``/healthcheck``"
@@ -98,7 +98,7 @@ msgstr "``cache_api.py``"
 
 #: ../../source/developer_guide/extending_http_api.rst:37
 msgid "``/clear-cache``"
-msgstr "``/clear-cache``"
+msgstr "/clear-cache"
 
 #: ../../source/developer_guide/extending_http_api.rst:38
 msgid "POST"
@@ -134,7 +134,7 @@ msgstr "在 ``lmcache/v1/multiprocess/http_apis/`` 中创建一个文件，文�
 msgid ""
 "That's it -- ``HTTPAPIRegistry`` discovers and mounts it on the next "
 "server startup; no other file needs to change."
-msgstr "就是这样 -- ``HTTPAPIRegistry`` 会在下次服务器启动时发现并挂载它；不需要更改其他文件。"
+msgstr "就是这样——``HTTPAPIRegistry`` 会在下次服务器启动时发现并挂载它；不需要更改其他文件。"
 
 #: ../../source/developer_guide/extending_http_api.rst:76
 msgid "Module contract"
@@ -142,21 +142,21 @@ msgstr "模块契约"
 
 #: ../../source/developer_guide/extending_http_api.rst:78
 msgid "An API module **must**:"
-msgstr "一个 API 模块 **必须**："
+msgstr "API 模块**必须**："
 
 #: ../../source/developer_guide/extending_http_api.rst:80
 msgid ""
 "live in ``lmcache/v1/multiprocess/http_apis/`` with a filename ending in "
 "``_api.py``;"
-msgstr "位于 ``lmcache/v1/multiprocess/http_apis/`` 目录下，文件名以 ``_api.py`` 结尾；"
+msgstr "位于 ``lmcache/v1/multiprocess/http_apis/``，文件名以 ``_api.py`` 结尾；"
 
 #: ../../source/developer_guide/extending_http_api.rst:82
 msgid "expose a module-level ``router`` of type ``fastapi.APIRouter``."
-msgstr "暴露一个模块级的 ``router``，类型为 ``fastapi.APIRouter``。"
+msgstr "公开一个模块级别的 ``router``，类型为 ``fastapi.APIRouter``。"
 
 #: ../../source/developer_guide/extending_http_api.rst:84
 msgid "An API module **should**:"
-msgstr "API 模块 **应该**："
+msgstr "API 模块**应该**："
 
 #: ../../source/developer_guide/extending_http_api.rst:86
 msgid ""
@@ -176,7 +176,7 @@ msgstr "使用 ``async`` 处理程序并避免阻塞 I/O。"
 msgid ""
 "An API module **must not** import or mutate the ``app`` object from "
 "``http_server.py``."
-msgstr "API 模块 **不得** 导入或修改 ``http_server.py`` 中的 ``app`` 对象。"
+msgstr "API 模块**不得**从 ``http_server.py`` 导入或修改 ``app`` 对象。"
 
 #: ../../source/developer_guide/extending_http_api.rst:95
 msgid "Accessing shared state"
@@ -186,11 +186,11 @@ msgstr "访问共享状态"
 msgid ""
 "``app.state`` is the shared context populated during server startup. "
 "Reach it through the request object:"
-msgstr "``app.state`` 是在服务器启动期间填充的共享上下文。通过请求对象访问它："
+msgstr "在服务器启动期间，``app.state`` 是被填充的共享上下文。可以通过请求对象访问它："
 
 #: ../../source/developer_guide/extending_http_api.rst:108
 msgid ""
 "For the full design rationale see "
 "``docs/design/v1/multiprocess/http_api_extension.md`` in the source tree."
-msgstr "有关完整的设计原理，请参见源代码树中的 ``docs/design/v1/multiprocess/http_api_extension.md``。"
+msgstr "有关完整的设计原理，请参阅源码树中的 ``docs/design/v1/multiprocess/http_api_extension.md``。"
 

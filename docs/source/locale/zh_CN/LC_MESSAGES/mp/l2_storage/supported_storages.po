@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LMCache \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-22 11:07+0000\n"
+"POT-Creation-Date: 2026-06-22 14:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -29,9 +29,7 @@ msgid ""
 "``--l2-adapter`` flag (each backend's ``\"type\"`` is shown below); every"
 " backend has its own configuration page. They are grouped by the kind of "
 "medium they target."
-msgstr ""
-"LMCache 提供了多个 L2 存储后端。使用 ``--l2-adapter`` 标志选择一个或多个（每个后端的 ``\"type\"`` "
-"如下所示）；每个后端都有其自己的配置页面。它们按目标介质的类型进行分组。"
+msgstr "LMCache 提供了多个 L2 存储后端。使用 ``--l2-adapter`` 标志选择一个或多个（每个后端的 ``\"type\"`` 如下所示）；每个后端都有其自己的配置页面。它们按目标介质的类型进行分组。"
 
 #: ../../source/mp/l2_storage/supported_storages.rst:13
 msgid "Backend"
@@ -63,21 +61,21 @@ msgstr ":doc:`文件系统 <fs>`"
 
 #: ../../source/mp/l2_storage/supported_storages.rst:20
 msgid "``fs``"
-msgstr "``fs``"
+msgstr "fs"
 
 #: ../../source/mp/l2_storage/supported_storages.rst:21
 #: ../../source/mp/l2_storage/supported_storages.rst:24
 #: ../../source/mp/l2_storage/supported_storages.rst:27
 msgid "File & Block"
-msgstr "文件与块"
+msgstr "文件和块"
 
 #: ../../source/mp/l2_storage/supported_storages.rst:22
 msgid ":doc:`FS (native) <fs_native>`"
-msgstr ":doc:`FS (native) <fs_native>`"
+msgstr ":doc:`FS（本地） <fs_native>`"
 
 #: ../../source/mp/l2_storage/supported_storages.rst:23
 msgid "``fs_native``"
-msgstr "``fs_native``"
+msgstr "fs_native"
 
 #: ../../source/mp/l2_storage/supported_storages.rst:25
 msgid ":doc:`Raw Block (Rust) <raw_block>`"
@@ -93,7 +91,7 @@ msgstr ":doc:`S3 <s3>`"
 
 #: ../../source/mp/l2_storage/supported_storages.rst:29
 msgid "``s3``"
-msgstr "``s3``"
+msgstr "s3"
 
 #: ../../source/mp/l2_storage/supported_storages.rst:30
 #: ../../source/mp/l2_storage/supported_storages.rst:33
@@ -109,7 +107,7 @@ msgstr ":doc:`HF Bucket <hfbucket>`"
 
 #: ../../source/mp/l2_storage/supported_storages.rst:32
 msgid "``hfbucket``"
-msgstr "``hfbucket``"
+msgstr "hfbucket"
 
 #: ../../source/mp/l2_storage/supported_storages.rst:34
 msgid ":doc:`Mooncake Store <mooncake_store>`"
@@ -141,11 +139,11 @@ msgstr ":doc:`DAX <dax>`"
 
 #: ../../source/mp/l2_storage/supported_storages.rst:44
 msgid "``dax``"
-msgstr "``dax``"
+msgstr "dax"
 
 #: ../../source/mp/l2_storage/supported_storages.rst:45
 msgid "Byte-addressable memory"
-msgstr "字节可寻址内存"
+msgstr "字节寻址内存"
 
 #: ../../source/mp/l2_storage/supported_storages.rst:46
 msgid ":doc:`Mock <mock>`"
@@ -162,7 +160,7 @@ msgstr "测试"
 
 #: ../../source/mp/l2_storage/supported_storages.rst:49
 msgid ":doc:`Fault Inject <fault_inject>`"
-msgstr "`:doc:`故障注入 <fault_inject>` `"
+msgstr ":doc:`故障注入 <fault_inject>`"
 
 #: ../../source/mp/l2_storage/supported_storages.rst:50
 msgid "``fault_inject``"

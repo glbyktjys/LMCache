@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LMCache \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-15 11:17+0000\n"
+"POT-Creation-Date: 2026-06-22 14:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -130,7 +130,7 @@ msgstr "**KV 张量字节。** 重放练习的记账和控制逻辑；重放时�
 msgid ""
 "Calls inside ``MPCacheServer``, the message queue, or GPU-copy code. "
 "Those layers are out of scope for the ``storage`` trace level."
-msgstr "``MPCacheServer``、消息队列或显存复制代码中的调用。这些层超出了 ``storage`` 跟踪级别的范围。"
+msgstr "在 ``MPCacheServer``、消息队列或 GPU 复制代码中的调用。这些层不在 ``storage`` 跟踪级别的范围内。"
 
 #: ../../source/mp/tracing_and_debugging.rst:73
 msgid "**Overhead:**"

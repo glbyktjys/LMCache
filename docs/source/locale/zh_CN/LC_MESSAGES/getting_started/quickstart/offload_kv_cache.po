@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LMCache \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-15 11:17+0000\n"
+"POT-Creation-Date: 2026-06-22 14:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -201,34 +201,34 @@ msgstr "前提条件（设置）"
 
 #: ../../source/getting_started/quickstart/offload_kv_cache.rst:170
 msgid "A CUDA GPU. The example picks a model that fits the GPU automatically:"
-msgstr "一块 CUDA GPU。示例会自动选择适合该 GPU 的模型："
+msgstr "CUDA GPU。示例会自动选择适合 GPU 的模型："
 
 #: ../../source/getting_started/quickstart/offload_kv_cache.rst:172
 msgid ""
 "``Qwen/Qwen3-8B`` (bf16) when the GPU has ~36 GiB or more (e.g. A100-80G,"
 " H100)."
-msgstr "``Qwen/Qwen3-8B`` (bf16) 当显存大约为 36 GiB 或更多时（例如 A100-80G, H100）。"
+msgstr "当显存约为 36 GiB 或更多时（例如 A100-80G, H100），使用 ``Qwen/Qwen3-8B`` (bf16)。"
 
 #: ../../source/getting_started/quickstart/offload_kv_cache.rst:173
 msgid ""
 "``Qwen/Qwen3-8B-FP8`` with ``kv_cache_dtype=\"fp8\"`` when the GPU has "
 "~24 GiB and supports native FP8 (Ada Lovelace / Hopper, ``sm_89+``; e.g. "
 "L4, L40, RTX 4090)."
-msgstr "``Qwen/Qwen3-8B-FP8`` 与 ``kv_cache_dtype=\"fp8\"`` 当 GPU 具有约 24 GiB 并支持原生 FP8（Ada Lovelace / Hopper，``sm_89+``；例如 L4、L40、RTX 4090）。"
+msgstr "``Qwen/Qwen3-8B-FP8`` with ``kv_cache_dtype=\"fp8\"`` when the GPU has ~24 GiB and supports native FP8 (Ada Lovelace / Hopper, ``sm_89+``; e.g. L4, L40, RTX 4090)."
 
 #: ../../source/getting_started/quickstart/offload_kv_cache.rst:175
 msgid ""
 "``Qwen/Qwen3-1.7B`` as the fallback for smaller GPUs (~10 GiB and up), "
 "including Ampere 24 GiB cards (RTX A5000, RTX 3090) where FP8 is "
 "unsupported."
-msgstr "``Qwen/Qwen3-1.7B`` 作为较小显卡的后备选择（约 10 GiB 及以上），包括不支持 FP8 的安培 24 GiB 显卡（RTX A5000、RTX 3090）。"
+msgstr "``Qwen/Qwen3-1.7B`` 作为较小 GPU（约 10 GiB 及以上）的后备选择，包括不支持 FP8 的 Ampere 24 GiB 显卡（RTX A5000、RTX 3090）。"
 
 #: ../../source/getting_started/quickstart/offload_kv_cache.rst:178
 msgid ""
 "Sufficient CPU memory. The example clamps the LMCache pinned host buffer "
 "to fit your system RAM and ``RLIMIT_MEMLOCK`` (``ulimit -l``), so it also"
 " works on smaller hosts without manual tuning."
-msgstr "足够的 CPU 内存。该示例将 LMCache 固定主机缓冲区限制为适合您的系统 RAM 和 ``RLIMIT_MEMLOCK`` (``ulimit -l``)，因此它也可以在不进行手动调整的小型主机上运行。"
+msgstr "充足的 CPU 内存。该示例将 LMCache 固定主机缓冲区限制在适合您的系统 RAM 和 ``RLIMIT_MEMLOCK``（``ulimit -l``）的范围内，因此即使在较小的主机上也无需手动调整即可运行。"
 
 #: ../../source/getting_started/quickstart/offload_kv_cache.rst:183
 msgid "Example script"

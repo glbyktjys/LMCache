@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LMCache \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-17 02:35+0000\n"
+"POT-Creation-Date: 2026-06-22 14:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -140,11 +140,11 @@ msgid ""
 "(integrated with vLLM) image yourself from the provided Dockerfile, "
 "located in `docker/ "
 "<https://github.com/LMCache/LMCache/tree/dev/docker>`_."
-msgstr "您可以从提供的 Dockerfile 自行构建 LMCache（与 vLLM 集成）镜像，而不是拉取预构建的镜像，该 Dockerfile 位于 `docker/ <https://github.com/LMCache/LMCache/tree/dev/docker>`_。"
+msgstr "与其拉取预构建的镜像，您可以从提供的 Dockerfile 自行构建集成了 vLLM 的 LMCache 镜像，Dockerfile 位于 `docker/ <https://github.com/LMCache/LMCache/tree/dev/docker>`_。"
 
 #: ../../source/getting_started/installation.rst:241
 msgid "From the root of the LMCache repository:"
-msgstr "在 LMCache 仓库的根目录下："
+msgstr "在 LMCache 仓库的根目录："
 
 #: ../../source/getting_started/installation.rst:247
 msgid ""
@@ -152,7 +152,7 @@ msgid ""
 "tag. See the example build file in `docker/ "
 "<https://github.com/LMCache/LMCache/tree/dev/docker>`_ for an explanation"
 " of all build arguments."
-msgstr "将 ``<IMAGE_NAME>`` 和 ``<TAG>`` 替换为您所需的镜像名称和标签。有关所有构建参数的解释，请参阅 `docker/ <https://github.com/LMCache/LMCache/tree/dev/docker>`_ 中的示例构建文件。"
+msgstr "将 ``<IMAGE_NAME>`` 和 ``<TAG>`` 替换为您想要的镜像名称和标签。有关所有构建参数的说明，请参阅 `docker/ <https://github.com/LMCache/LMCache/tree/dev/docker>`_ 中的示例构建文件。"
 
 #: ../../source/getting_started/installation.rst:252
 msgid "Verify Installation"
