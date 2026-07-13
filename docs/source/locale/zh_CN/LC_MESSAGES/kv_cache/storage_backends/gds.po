@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LMCache \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-29 22:44+0000\n"
+"POT-Creation-Date: 2026-06-15 15:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -174,7 +174,7 @@ msgid ""
 "full installation details, see the `hipFile install guide "
 "<https://github.com/ROCm/rocm-"
 "systems/blob/develop/projects/hipfile/INSTALL.md>`__."
-msgstr "hipFile 是 alpha 版软件，仅在有限的硬件上进行了测试。有关完整的安装细节，请参见 `hipFile 安装指南 <https://github.com/ROCm/rocm-systems/blob/develop/projects/hipfile/INSTALL.md>`__。"
+msgstr "hipFile 是 alpha 软件，已在有限的硬件上进行了测试。完整的安装详情，请参阅 `hipFile 安装指南 <https://github.com/ROCm/rocm-systems/blob/develop/projects/hipfile/INSTALL.md>`__。"
 
 #: ../../source/kv_cache/storage_backends/gds.rst:128
 #: ../../source/kv_cache/storage_backends/gds.rst:179

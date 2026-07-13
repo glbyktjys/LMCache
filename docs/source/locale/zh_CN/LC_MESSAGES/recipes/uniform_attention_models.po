@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LMCache \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-22 11:07+0000\n"
+"POT-Creation-Date: 2026-06-29 13:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: ../../source/recipes/uniform_attention_models.rst:4
 msgid "Uniform Attention Models"
-msgstr "均匀注意力模型"
+msgstr "统一注意力模型"
 
 #: ../../source/recipes/uniform_attention_models.rst:6
 msgid ""
@@ -29,9 +29,7 @@ msgid ""
 "validated end-to-end with LMCache, with a recipe page per architecture "
 "covering only the LMCache-specific configuration that diverges from "
 "defaults."
-msgstr ""
-"针对标准（均匀）注意力变换器架构的食谱，经过与 LMCache 的端到端验证，每种架构都有一个食谱页面，仅涵盖与默认配置不同的 LMCache "
-"特定配置。"
+msgstr "针对标准（统一）注意力 Transformer 架构的配方，已通过 LMCache 进行端到端验证，每个架构的配方页面仅涵盖与默认配置不同的 LMCache 特定配置。"
 
 #: ../../source/recipes/uniform_attention_models.rst:10
 msgid ""
@@ -39,21 +37,19 @@ msgid ""
 "serves them with one KV cache group. Models that interleave multiple "
 "attention types (sliding-window + full, or Mamba / linear-attention + "
 "full) are covered under :doc:`/mp/hybrid_models`."
-msgstr ""
-"这些模型在所有层中使用 **单一的注意力类型**，因此 vLLM 使用一个 KV Cache 组来服务它们。交错使用多种注意力类型的模型（滑动窗口"
-" + 完全，或 Mamba / 线性注意力 + 完全）在 :doc:`/mp/hybrid_models` 中进行了介绍。"
+msgstr "这些模型在所有层中使用**单一注意力类型**，因此 vLLM 使用一个 KV Cache 组来服务它们。交错使用多种注意力类型（滑动窗口 + 全局，或 Mamba / 线性注意力 + 全局）的模型在 :doc:`/mp/hybrid_models` 中介绍。"
 
 #: ../../source/recipes/uniform_attention_models.rst:16
 msgid "Recipe page contents"
-msgstr "食谱页面内容"
+msgstr "配方页面内容"
 
 #: ../../source/recipes/uniform_attention_models.rst:18
 msgid "Each recipe page is intentionally minimal:"
-msgstr "每个食谱页面都故意保持简洁："
+msgstr "每个配方页面都故意保持简洁："
 
 #: ../../source/recipes/uniform_attention_models.rst:20
 msgid "**Validated models** -- exact HF repo IDs that have been tested."
-msgstr "**验证过的模型** -- 已测试的确切 HF 仓库 ID。"
+msgstr "**已验证模型** -- 已测试的确切 HF 仓库 ID。"
 
 #: ../../source/recipes/uniform_attention_models.rst:21
 msgid ""
@@ -61,9 +57,7 @@ msgid ""
 "Each tab links to the engine's own documentation for the model and shows "
 "the exact ``lmcache server`` and engine launch commands. Tabs for engines"
 " that are not yet validated state so explicitly."
-msgstr ""
-"**引擎选项卡** -- 每个服务引擎（vLLM, SGLang, TRT-LLM）一个选项卡。每个选项卡链接到该引擎的模型文档，并显示确切的 "
-"``lmcache server`` 和引擎启动命令。尚未验证的引擎的选项卡会明确说明。"
+msgstr "**引擎选项卡** -- 每个服务引擎（vLLM, SGLang, TRT-LLM）一个选项卡。每个选项卡链接到引擎自身的模型文档，并显示确切的 ``lmcache server`` 和引擎启动命令。尚未验证的引擎选项卡会明确说明。"
 
 #: ../../source/recipes/uniform_attention_models.rst:25
 msgid "**CacheBlend support** -- validation status (may be empty)."
@@ -73,20 +67,18 @@ msgstr "**CacheBlend 支持** -- 验证状态（可能为空）。"
 msgid ""
 "**Compression support** -- table of compression methods (CacheGen, etc.) "
 "with per-method validation status. Extensible: new methods get a row."
-msgstr "**压缩支持** -- 压缩方法（CacheGen 等）的表格，包含每种方法的验证状态。可扩展：新方法将获得一行。"
+msgstr "**压缩支持** -- 压缩方法表（如 CacheGen 等）及每种方法的验证状态。可扩展：新方法将获得一行。"
 
 #: ../../source/recipes/uniform_attention_models.rst:28
 msgid "**Caveats** -- known limitations, if any."
-msgstr "**注意事项** -- 已知的限制（如果有的话）。"
+msgstr "**注意事项** -- 已知的限制（如果有）。"
 
 #: ../../source/recipes/uniform_attention_models.rst:30
 msgid ""
 "For the generic LMCache + engine wiring (ports, remote hosts, sending a "
 "first request), see :doc:`../getting_started/quickstart`. Recipes assume "
 "that page as a prerequisite."
-msgstr ""
-"有关通用 LMCache + 引擎连接（端口、远程主机、发送第一个请求），请参见 "
-":doc:`../getting_started/quickstart`。食谱假设该页面为前提条件。"
+msgstr "有关通用的 LMCache + 引擎连接（端口、远程主机、发送第一个请求），请参阅 :doc:`../getting_started/quickstart`。配方假设该页面为前提条件。"
 
 #: ../../source/recipes/uniform_attention_models.rst:35
 msgid "Supported architectures"
@@ -114,7 +106,7 @@ msgstr "TRT-LLM"
 
 #: ../../source/recipes/uniform_attention_models.rst:46
 msgid "Recipe"
-msgstr "食谱"
+msgstr "配方"
 
 #: ../../source/recipes/uniform_attention_models.rst:48
 msgid "MiniMax M2 series"
@@ -217,15 +209,15 @@ msgid ""
 "Legend: ``✓`` validated, ``—`` not validated. The **Model** column is the"
 " model family; each recipe page lists the exact vLLM architecture class "
 "it covers."
-msgstr "图例：``✓`` 已验证，``—`` 未验证。**模型**列是模型系列；每个食谱页面列出了它所涵盖的确切 vLLM 架构类。"
+msgstr "图例：``✓`` 已验证，``—`` 未验证。**Model** 列是模型系列；每个配方页面列出了其涵盖的确切 vLLM 架构类。"
 
 #: ../../source/recipes/uniform_attention_models.rst:94
 msgid "Contributing a recipe"
-msgstr "贡献一个食谱"
+msgstr "贡献一个配方"
 
 #: ../../source/recipes/uniform_attention_models.rst:96
 msgid "To add a new uniform-attention architecture:"
-msgstr "要添加一个新的统一注意力架构："
+msgstr "要添加新的统一注意力架构："
 
 #: ../../source/recipes/uniform_attention_models.rst:98
 msgid ""
@@ -238,41 +230,39 @@ msgid ""
 "Fill in **Validated models**, **Engines**, **LMCache configuration**, and"
 " **Caveats**. Keep each section terse -- if a field has nothing to say, "
 "say so in one line rather than padding it."
-msgstr ""
-"填写 **验证过的模型**、**引擎**、**LMCache 配置** 和 "
-"**注意事项**。保持每个部分简洁——如果某个字段没有内容，请用一行说明，而不是填充内容。"
+msgstr "填写 **已验证模型**、**引擎**、**LMCache 配置** 和 **注意事项**。保持每个部分简洁——如果某个字段没有内容，就用一行说明，而不是填充内容。"
 
 #: ../../source/recipes/uniform_attention_models.rst:103
 msgid "Add a row to the table above and an entry to the hidden toctree below."
-msgstr "在上面的表格中添加一行，并在下面的隐藏 toctree 中添加一个条目。"
+msgstr "在上表中添加一行，并在下面的隐藏 toctree 中添加一个条目。"
 
 #: ../../source/recipes/uniform_attention_models.rst:105
 msgid ""
 "(For models that interleave attention types, add the page under "
 ":doc:`/mp/hybrid_models` instead.)"
-msgstr "(对于交错注意力类型的模型，请将页面添加到 :doc:`/mp/hybrid_models` 下。)"
+msgstr "（对于交错使用注意力类型的模型，请将页面添加到 :doc:`/mp/hybrid_models` 下。）"
 
 #~ msgid "Architecture"
-#~ msgstr "架构"
+#~ msgstr ""
 
 #~ msgid "``MiniMaxM2ForCausalLM``"
-#~ msgstr "``MiniMaxM2ForCausalLM``"
+#~ msgstr ""
 
 #~ msgid "``MistralForCausalLM``"
-#~ msgstr "``MistralForCausalLM``"
+#~ msgstr ""
 
 #~ msgid "``Qwen3MoeForCausalLM``"
-#~ msgstr "``Qwen3MoeForCausalLM``"
+#~ msgstr ""
 
 #~ msgid "``LlamaForCausalLM``"
-#~ msgstr "``LlamaForCausalLM``"
+#~ msgstr ""
 
 #~ msgid "``Phi3ForCausalLM``"
-#~ msgstr "``Phi3ForCausalLM``"
+#~ msgstr ""
 
 #~ msgid "``MixtralForCausalLM``"
-#~ msgstr "``MixtralForCausalLM``"
+#~ msgstr ""
 
 #~ msgid "Legend: ``✓`` validated, ``—`` not validated."
-#~ msgstr "图例：``✓`` 已验证，``—`` 未验证。"
+#~ msgstr ""
 

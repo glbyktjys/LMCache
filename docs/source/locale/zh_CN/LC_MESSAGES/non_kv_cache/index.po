@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LMCache \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-17 02:35+0000\n"
+"POT-Creation-Date: 2026-06-22 14:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -21,9 +21,9 @@ msgstr ""
 
 #: ../../source/non_kv_cache/index.rst:2
 msgid "Non-KV Caching"
-msgstr "非 KV 缓存"
+msgstr "非-KV 缓存"
 
 #: ../../source/non_kv_cache/index.rst:4
 msgid "Caching state beyond the attention KV cache."
-msgstr "超出注意力 KV Cache 的缓存状态。"
+msgstr "缓存超出注意力 KV Cache 的状态。"
 

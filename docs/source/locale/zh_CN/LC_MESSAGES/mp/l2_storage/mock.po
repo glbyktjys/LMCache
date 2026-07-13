@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LMCache \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-17 02:35+0000\n"
+"POT-Creation-Date: 2026-06-22 14:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -27,7 +27,7 @@ msgstr "模拟"
 msgid ""
 "Simulates L2 storage with configurable size and bandwidth.  Useful for "
 "testing the L2 pipeline without real storage hardware."
-msgstr "模拟具有可配置大小和带宽的 L2 存储。对于在没有真实存储硬件的情况下测试 L2 管道非常有用。"
+msgstr "模拟具有可配置大小和带宽的 L2 存储。用于在没有真实存储硬件的情况下测试 L2 管道。"
 
 #: ../../source/mp/l2_storage/mock.rst:7
 msgid "**Fields:**"
@@ -35,9 +35,9 @@ msgstr "**字段：**"
 
 #: ../../source/mp/l2_storage/mock.rst:9
 msgid "``max_size_gb``: Maximum size in GB (> 0)."
-msgstr "``max_size_gb``: 最大大小（以 GB 为单位，> 0）。"
+msgstr "``max_size_gb``：最大大小（GB，> 0）。"
 
 #: ../../source/mp/l2_storage/mock.rst:10
 msgid "``mock_bandwidth_gb``: Simulated bandwidth in GB/sec (> 0)."
-msgstr "``mock_bandwidth_gb``: 模拟带宽，单位为 GB/秒 (> 0)。"
+msgstr "``mock_bandwidth_gb``：模拟带宽，单位为 GB/秒（> 0）。"
 

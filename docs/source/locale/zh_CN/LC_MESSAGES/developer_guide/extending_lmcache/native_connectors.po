@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LMCache \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-17 02:35+0000\n"
+"POT-Creation-Date: 2026-06-22 14:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: ../../source/developer_guide/extending_lmcache/native_connectors.rst:2
 msgid "Adding Native Backends"
-msgstr "添加本地后端"
+msgstr "添加原生后端"
 
 #: ../../source/developer_guide/extending_lmcache/native_connectors.rst:7
 msgid "Overview"
@@ -717,7 +717,7 @@ msgstr "单元测试（参见 ``examples/lmc_external_native_connector/tests/``�
 
 #: ../../source/developer_guide/extending_lmcache/native_connectors.rst:628
 msgid "Built-in Aerospike backend (optional)"
-msgstr "内置的 Aerospike 后端（可选）"
+msgstr "内置 Aerospike 后端（可选）"
 
 #: ../../source/developer_guide/extending_lmcache/native_connectors.rst:630
 msgid ""
@@ -725,7 +725,7 @@ msgid ""
 "``ConnectorBase`` harness as Redis). It is compiled only when "
 "``BUILD_AEROSPIKE=1`` or ``AEROSPIKE_INCLUDE_DIR`` is set during ``pip "
 "install -e .``."
-msgstr "LMCache 提供一个可选的内置 Aerospike 原生连接器（与 Redis 使用相同的 ``ConnectorBase`` 框架）。仅当在 ``pip install -e .`` 时设置 ``BUILD_AEROSPIKE=1`` 或 ``AEROSPIKE_INCLUDE_DIR`` 时，它才会被编译。"
+msgstr "LMCache 提供了一个可选的内置 Aerospike 原生连接器（与 Redis 使用相同的 ``ConnectorBase`` 框架）。仅在 ``pip install -e .`` 期间设置 ``BUILD_AEROSPIKE=1`` 或 ``AEROSPIKE_INCLUDE_DIR`` 时编译。"
 
 #: ../../source/developer_guide/extending_lmcache/native_connectors.rst:635
 msgid "**Build:**"
@@ -736,24 +736,24 @@ msgid ""
 "The ``aerospike-client-c.env`` file simply points the build at the C "
 "client headers and shared libraries you unpacked into ``.deps/``. Adjust "
 "the paths to match where the client was installed. Example:"
-msgstr "``aerospike-client-c.env`` 文件仅仅指向您解压到 ``.deps/`` 中的 C 客户端头文件和共享库。请调整路径以匹配客户端的安装位置。示例："
+msgstr "``aerospike-client-c.env`` 文件只是将构建指向您解压到 ``.deps/`` 中的 C 客户端头文件和共享库。调整路径以匹配客户端的安装位置。示例："
 
 #: ../../source/developer_guide/extending_lmcache/native_connectors.rst:656
 msgid ""
 "Setting ``AEROSPIKE_INCLUDE_DIR`` is enough to enable the extension, so "
 "``BUILD_AEROSPIKE=1`` is optional once the env file is sourced. Multiple "
 "include or library directories can be passed as ``;``-separated lists."
-msgstr "设置 ``AEROSPIKE_INCLUDE_DIR`` 足以启用扩展，因此一旦加载了环境文件，``BUILD_AEROSPIKE=1`` 是可选的。可以将多个包含或库目录作为 ``;`` 分隔的列表传递。"
+msgstr "设置 ``AEROSPIKE_INCLUDE_DIR`` 就足以启用扩展，因此在环境文件被加载后，``BUILD_AEROSPIKE=1`` 是可选的。可以将多个包含或库目录作为用 ``;`` 分隔的列表传递。"
 
 #: ../../source/developer_guide/extending_lmcache/native_connectors.rst:660
 msgid "**MP mode:**"
-msgstr "**MP 模式:**"
+msgstr "**MP 模式：**"
 
 #: ../../source/developer_guide/extending_lmcache/native_connectors.rst:666
 msgid ""
 "Implementation: ``csrc/storage_backends/aerospike/``, "
 "``lmcache/v1/distributed/l2_adapters/aerospike_l2_adapter.py``."
-msgstr "实现：``csrc/storage_backends/aerospike/``, ``lmcache/v1/distributed/l2_adapters/aerospike_l2_adapter.py``。"
+msgstr "Implementation: ``csrc/storage_backends/aerospike/``，``lmcache/v1/distributed/l2_adapters/aerospike_l2_adapter.py``."
 
 #: ../../source/developer_guide/extending_lmcache/native_connectors.rst:671
 msgid "Additional Resources"
@@ -783,7 +783,7 @@ msgstr "Redis 参考实现: ``csrc/storage_backends/redis/``"
 
 #: ../../source/developer_guide/extending_lmcache/native_connectors.rst:678
 msgid "Aerospike implementation (optional): ``csrc/storage_backends/aerospike/``"
-msgstr "Aerospike 实现（可选）：``csrc/storage_backends/aerospike/``"
+msgstr "Aerospike 实现（可选）: ``csrc/storage_backends/aerospike/``"
 
 #: ../../source/developer_guide/extending_lmcache/native_connectors.rst:679
 msgid "Architecture README: ``csrc/storage_backends/README.md``"

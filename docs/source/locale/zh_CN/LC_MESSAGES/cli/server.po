@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LMCache \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-22 11:07+0000\n"
+"POT-Creation-Date: 2026-06-29 13:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -198,18 +198,18 @@ msgid ""
 "endpoint to peers (e.g. ``10.0.0.1:8500``). Setting it turns P2P on; it "
 "additionally requires ``--coordinator-url`` for peer discovery. See "
 ":doc:`/mp/p2p`."
-msgstr "启用 P2P KV Cache 共享，并将此服务器的传输通道端点广告给对等方（例如 ``10.0.0.1:8500``）。设置它会开启 P2P；此外还需要 ``--coordinator-url`` 进行对等发现。请参见 :doc:`/mp/p2p`。"
+msgstr "启用 P2P KV Cache 共享，并将此服务器的传输通道端点告知给其他节点（例如 ``10.0.0.1:8500``）。设置此选项会开启 P2P；此外还需要 ``--coordinator-url`` 进行节点发现。参见 :doc:`/mp/p2p`。"
 
 #: ../../source/cli/server.rst:86
 msgid "``--p2p-listen-url HOST:PORT``"
-msgstr "``--p2p-listen-url 主机:端口``"
+msgstr "``--p2p-listen-url HOST:PORT``"
 
 #: ../../source/cli/server.rst:87
 msgid ""
 "Address the transfer-channel server binds to. Defaults to ``--p2p-"
 "advertise-url``. Set it when the advertised address differs from the bind"
 " address (e.g. bind ``0.0.0.0`` while advertising a routable IP)."
-msgstr "传输通道服务器绑定的地址。默认为 ``--p2p-advertise-url``。当广告地址与绑定地址不同（例如，绑定 ``0.0.0.0`` 而广告一个可路由的 IP）时，请设置它。"
+msgstr "传输通道服务器绑定的地址。默认为 ``--p2p-advertise-url``。当广告地址与绑定地址不同时设置此项（例如，绑定 ``0.0.0.0`` 而广告一个可路由的 IP）。"
 
 #: ../../source/cli/server.rst:90
 msgid "``--p2p-lookup-timeout SECONDS``"
@@ -217,7 +217,7 @@ msgstr "``--p2p-lookup-timeout SECONDS``"
 
 #: ../../source/cli/server.rst:91
 msgid "Deadline for a peer lookup before it counts as a miss (default ``30``)."
-msgstr "对等查找的截止时间，超过该时间将视为未命中（默认 ``30``）。"
+msgstr "对等查找超时的截止时间，超过此时间将视为缓存未命中（默认值为 ``30``）。"
 
 #: ../../source/cli/server.rst:92
 msgid "``--p2p-load-timeout SECONDS``"
@@ -227,7 +227,7 @@ msgstr "``--p2p-load-timeout SECONDS``"
 msgid ""
 "Deadline for a peer KV read before it counts as a failure (default "
 "``30``)."
-msgstr "对等 KV 读取的截止时间，超过该时间将视为失败（默认 ``30``）。"
+msgstr "对等 KV 读取在被视为失败前的截止时间（默认值为 ``30``）。"
 
 #: ../../source/cli/server.rst:95
 msgid "``--p2p-transfer-engine ENGINE``"
@@ -235,7 +235,7 @@ msgstr "``--p2p-transfer-engine ENGINE``"
 
 #: ../../source/cli/server.rst:96
 msgid "Transfer-channel implementation for P2P reads (default ``nixl``)."
-msgstr "P2P 读取的传输通道实现（默认 ``nixl``）。"
+msgstr "用于 P2P 读取的传输通道实现（默认 ``nixl``）。"
 
 #: ../../source/cli/server.rst:97
 #, python-brace-format

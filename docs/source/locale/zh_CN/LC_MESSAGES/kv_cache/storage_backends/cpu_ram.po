@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LMCache \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-29 22:44+0000\n"
+"POT-Creation-Date: 2026-06-15 15:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -120,7 +120,7 @@ msgid ""
 " For large KV cache buffers (multiple gigabytes), enabling **Linux "
 "hugepages** (2 MiB pages) can reduce TLB (Translation Lookaside Buffer) "
 "pressure and improve memory access performance."
-msgstr "默认情况下，LMCache 使用常规的 4 KiB 页面分配 CPU 固定内存。对于大型 KV Cache 缓冲区（多个千兆字节），启用 **Linux 大页**（2 MiB 页面）可以减少 TLB（转换后备缓冲区）压力并提高内存访问性能。"
+msgstr "默认情况下，LMCache 使用常规的 4 KiB 页分配 CPU 固定内存。对于大型 KV Cache 缓冲区（多个 GB），启用 **Linux 大页**（2 MiB 页）可以减少 TLB（翻译后备缓冲区）压力并提高内存访问性能。"
 
 #: ../../source/kv_cache/storage_backends/cpu_ram.rst:76
 msgid "**System prerequisite**"
@@ -131,7 +131,7 @@ msgid ""
 "Hugepages must be pre-allocated at the OS level before LMCache starts. TO"
 " find the number of pages needed, divide the desired buffer size by 2 MiB"
 " and round up. For example, 5 GB requires at least 2560 pages:"
-msgstr "在 LMCache 启动之前，必须在操作系统级别预先分配大页面。要找到所需的页面数量，将所需的缓冲区大小除以 2 MiB 并向上取整。例如，5 GB 至少需要 2560 页："
+msgstr "在 LMCache 启动之前，必须在操作系统级别预先分配大页。要确定所需的页数，将所需的缓冲区大小除以 2 MiB 并向上取整。例如，5 GB 至少需要 2560 页："
 
 #: ../../source/kv_cache/storage_backends/cpu_ram.rst:90
 msgid "Verify that pages are available:"
@@ -143,7 +143,7 @@ msgstr "**配置**"
 
 #: ../../source/kv_cache/storage_backends/cpu_ram.rst:104
 msgid "Or via environment variable:"
-msgstr "或通过环境变量："
+msgstr "或者通过环境变量："
 
 #: ../../source/kv_cache/storage_backends/cpu_ram.rst:110
 msgid "**Restrictions**"
@@ -151,17 +151,17 @@ msgstr "**限制**"
 
 #: ../../source/kv_cache/storage_backends/cpu_ram.rst:112
 msgid "Hugepages are **not compatible with P2P mode** (``enable_p2p: true``)."
-msgstr "大页 **与 P2P 模式不兼容** (``enable_p2p: true``)。"
+msgstr "大页与 P2P 模式**不兼容**（``enable_p2p: true``）。"
 
 #: ../../source/kv_cache/storage_backends/cpu_ram.rst:113
 msgid "Hugepages are **not compatible with shared memory** (``shm_name`` is set)."
-msgstr "大页与 **共享内存** 不兼容（``shm_name`` 已设置）。"
+msgstr "大页与**共享内存不兼容**（设置了``shm_name``）。"
 
 #: ../../source/kv_cache/storage_backends/cpu_ram.rst:114
 msgid ""
 "On non-CUDA platforms, hugepages are not supported. Regular allocation "
 "will be used as fallback."
-msgstr "在非CUDA平台上，不支持大页。将使用常规分配作为后备。"
+msgstr "在非 CUDA 平台上，不支持大页。将使用常规分配作为后备。"
 
 #: ../../source/kv_cache/storage_backends/cpu_ram.rst:119
 msgid "Online Inference Example"

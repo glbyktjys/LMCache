@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LMCache \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-17 02:35+0000\n"
+"POT-Creation-Date: 2026-06-22 14:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -36,7 +36,7 @@ msgid ""
 "an OTel ``LoggingHandler`` so that log records are forwarded to any "
 "configured OTel ``LoggerProvider``. The handler respects the "
 "``LMCACHE_LOG_LEVEL`` environment variable."
-msgstr "当安装 OpenTelemetry 时，``init_logger`` 会自动附加一个 OTel ``LoggingHandler``，以便将日志记录转发到任何配置的 OTel ``LoggerProvider``。该处理程序遵循 ``LMCACHE_LOG_LEVEL`` 环境变量。"
+msgstr "安装 OpenTelemetry 后，``init_logger`` 会自动附加一个 OTel ``LoggingHandler``，以便将日志记录转发到任何已配置的 OTel ``LoggerProvider``。该处理程序遵循 ``LMCACHE_LOG_LEVEL`` 环境变量。"
 
 #: ../../source/mp/observability/logs.rst:16
 msgid "Key log messages:"
@@ -54,15 +54,15 @@ msgstr "消息"
 #: ../../source/mp/observability/logs.rst:26
 #: ../../source/mp/observability/logs.rst:28
 msgid "INFO"
-msgstr "信息"
+msgstr "INFO"
 
 #: ../../source/mp/observability/logs.rst:25
 msgid "``Stored N tokens in X seconds``"
-msgstr "``存储 N 个令牌耗时 X 秒``"
+msgstr "``在 X 秒内存储了 N 个 token``"
 
 #: ../../source/mp/observability/logs.rst:27
 msgid "``Retrieved N tokens in X seconds``"
-msgstr "``检索到 N 个令牌，耗时 X 秒``"
+msgstr "``在 X 秒内检索到 N 个 token``"
 
 #: ../../source/mp/observability/logs.rst:29
 msgid "``Prefetch request completed (L1+L2): N/M prefix hits``"
@@ -75,9 +75,9 @@ msgstr "调试"
 
 #: ../../source/mp/observability/logs.rst:31
 msgid "``MP store start: session=... device=...``"
-msgstr "``MP 存储开始: session=... device=...``"
+msgstr "``MP store start: session=... device=...``"
 
 #: ../../source/mp/observability/logs.rst:33
 msgid "``MP retrieve end: session=... retrieved_count=...``"
-msgstr "``MP retrieve end: session=... retrieved_count=...``"
+msgstr "``MP retrieve end: session=... retrieved_count=...```"
 

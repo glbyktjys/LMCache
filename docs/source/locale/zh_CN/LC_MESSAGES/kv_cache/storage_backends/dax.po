@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LMCache \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-15 11:17+0000\n"
+"POT-Creation-Date: 2026-06-22 14:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -73,7 +73,7 @@ msgstr ""
 
 #: ../../source/kv_cache/storage_backends/dax.rst:64
 msgid "The legacy single-device ``--l2-adapter`` JSON accepts these fields:"
-msgstr "遗留的单设备 ``--l2-adapter`` JSON 接受以下字段："
+msgstr "旧版单设备 ``--l2-adapter`` JSON 接受以下字段："
 
 #: ../../source/kv_cache/storage_backends/dax.rst:66
 msgid "``device_path``: required path to a readable and writable DAX device."
@@ -137,7 +137,7 @@ msgid ""
 " metadata, or restart recovery. Capacity accounting and eviction are "
 "slot-based: a stored object occupies one slot even if its payload is "
 "smaller than ``slot_bytes``."
-msgstr "MP DAX 每个 LMCache 服务器使用一个稳定的适配器外观。该外观拥有稳定的事件文件描述符和工作池，运行时的添加/删除/调整大小仅更改该外观后面的映射 DAX 核心。它不添加内核级 CXL 或 DAX 重新配置、每个 TP 的 DAX 分区、设备上的元数据或重启恢复。容量核算和逐出基于插槽：即使存储对象的有效负载小于 ``slot_bytes``，它也占用一个插槽。"
+msgstr "MP DAX 为每个 LMCache 服务器使用一个稳定的适配器外观。该外观拥有稳定的事件文件描述符和工作池，运行时的添加/删除/调整大小仅更改该外观后面的映射 DAX 核心。它不添加内核级 CXL 或 DAX 重新配置、每 TP DAX 分区、设备上的元数据或重启恢复。容量计算和逐出是基于槽位的：即使存储对象的有效负载小于 ``slot_bytes``，它也占用一个槽位。"
 
 #: ../../source/kv_cache/storage_backends/dax.rst:113
 msgid "Runtime Hotplug API"
@@ -154,31 +154,31 @@ msgid ""
 "selected adapter. DAX owns the path, mode, migration, and resize "
 "semantics; the generic interface is reusable by other adapters such as "
 "P2P. Use JSON bodies because DAX paths contain slashes:"
-msgstr "运行时热插拔在 ``hotplug_enabled`` 为 ``true`` 时才会启用。该 API 仅更改 LMCache 的运行时映射和元数据；``/dev/dax*`` 设备必须已经存在，并且 LMCache 服务器进程必须具有可读写权限。运行时端点通过 StorageManager 的通用 L2 适配器重新配置接口实现，该接口将后端、操作名称和适配器特定有效负载路由到所选适配器。DAX 拥有路径、模式、迁移和调整大小的语义；通用接口可被其他适配器（如 P2P）重用。使用 JSON 主体，因为 DAX 路径包含斜杠："
+msgstr "除非 ``hotplug_enabled`` 为 ``true``，否则运行时热插拔被禁用。该 API 仅更改 LMCache 运行时映射和元数据；``/dev/dax*`` 设备必须已存在并且可由 LMCache 服务器进程读写。运行时端点通过 StorageManager 的通用 L2 适配器重新配置接口实现，该接口将后端、操作名称和适配器特定的负载路由到选定的适配器。DAX 拥有路径、模式、迁移和调整大小语义；通用接口可被其他适配器（如 P2P）重用。使用 JSON 主体，因为 DAX 路径包含斜杠："
 
 #: ../../source/kv_cache/storage_backends/dax.rst:138
 msgid ""
 "``size`` is required for add and resize. Use an integer byte count or a "
 "string such as ``\"100GiB\"``. ``remove`` supports these modes:"
-msgstr "``size`` 是添加和调整大小所必需的。使用整数字节数或字符串，例如 ``\"100GiB\"``。``remove`` 支持以下模式："
+msgstr "添加和调整大小需要指定``size``。可以使用整数字节数或字符串形式，例如``\"100GiB\"``。``remove``支持以下模式："
 
 #: ../../source/kv_cache/storage_backends/dax.rst:141
 msgid ""
 "``migrate``: move DAX-resident KV to other active DAX devices before "
 "closing the source device."
-msgstr "``migrate``: 在关闭源设备之前，将 DAX 驻留的 KV 移动到其他活动的 DAX 设备。"
+msgstr "``migrate``：在关闭源设备之前，将驻留在 DAX 的 KV 移动到其他活跃的 DAX 设备。"
 
 #: ../../source/kv_cache/storage_backends/dax.rst:143
 msgid ""
 "``evict``: delete DAX-resident KV on the source device. This is "
 "destructive for the DAX tier."
-msgstr "``evict``: 删除源设备上的 DAX 驻留 KV。这对 DAX 层是破坏性的。"
+msgstr "“``evict``：删除源设备上的 DAX 驻留 KV。这对 DAX 层是破坏性的。”"
 
 #: ../../source/kv_cache/storage_backends/dax.rst:145
 msgid ""
 "``drain``: stop new writes to the source device and leave existing KV "
 "readable until it is evicted or the server closes."
-msgstr "``drain``: 停止对源设备的新写入，并保持现有的 KV 可读，直到被逐出或服务器关闭。"
+msgstr "“``drain``：停止向源设备的新写入，并保持现有的 KV 可读，直到其被逐出或服务器关闭。”"
 
 #: ../../source/kv_cache/storage_backends/dax.rst:148
 msgid ""
@@ -195,7 +195,7 @@ msgid ""
 "in-memory key index and does not move KV payloads. Resize shrink never "
 "silently drops keys; entries outside the new slot range must migrate "
 "first, or the request fails."
-msgstr "热插拔操作默认是安全的。删除或缩小会删除外部锁定或借用的槽位时，除非设置了 ``force``，否则返回 ``409 Conflict``。没有活动目标容量的迁移返回 ``507 Insufficient Storage``。扩展的调整大小保留内存中的键索引，并且不移动 KV 负载。缩小的调整大小绝不会静默丢弃键；新槽范围外的条目必须先迁移，否则请求将失败。"
+msgstr "默认情况下，热插拔操作是线程安全的。移除或缩小操作如果会删除外部锁定或借用的槽位，则返回 ``409 Conflict``，除非设置了 ``force``。如果迁移没有活动的目标容量，则返回 ``507 Insufficient Storage``。调整大小时，扩展操作会保留内存中的键索引，并且不会移动 KV 负载。缩小操作绝不会静默删除键；新槽位范围之外的条目必须先迁移，否则请求将失败。"
 
 #: ../../source/kv_cache/storage_backends/dax.rst:160
 msgid "Hardware Validation Flow"
@@ -208,7 +208,7 @@ msgid ""
 "``/reconfigure/dax/status`` and ``/reconfigure/dax/add`` are not "
 "available; changing the DAX device set requires restarting LMCache with a"
 " new ``--l2-adapter`` value, which drops the volatile DAX key index."
-msgstr "在运行时容量更改之前和之后使用相同的 Qwen 8B 或 14B 长上下文工作负载。如果没有热插拔支持，``/reconfigure/dax/status`` 和 ``/reconfigure/dax/add`` 将不可用；更改 DAX 设备集需要使用新的 ``--l2-adapter`` 值重新启动 LMCache，这将丢弃易失性的 DAX 密钥索引。"
+msgstr "在运行时容量更改前后使用相同的 Qwen 8B 或 14B 长上下文工作负载。没有热插拔支持时，``/reconfigure/dax/status`` 和 ``/reconfigure/dax/add`` 不可用；更改 DAX 设备集需要使用新的 ``--l2-adapter`` 值重新启动 LMCache，这会丢弃易失性 DAX 键索引。"
 
 #: ../../source/kv_cache/storage_backends/dax.rst:181
 msgid "Record these fields for the comparison:"
@@ -220,7 +220,7 @@ msgstr "``total_capacity_bytes`` 在 ``/reconfigure/dax/add`` 之前和之后。
 
 #: ../../source/kv_cache/storage_backends/dax.rst:184
 msgid "``total_used_bytes`` while the Qwen workload is running."
-msgstr "``total_used_bytes`` 在 Qwen 工作负载运行时。"
+msgstr "Qwen 工作负载运行时的 ``total_used_bytes``。"
 
 #: ../../source/kv_cache/storage_backends/dax.rst:185
 msgid "Whether an LMCache restart was required."
@@ -230,7 +230,7 @@ msgstr "是否需要重启 LMCache。"
 msgid ""
 "Whether the same cached prompt remains retrievable after the capacity "
 "change."
-msgstr "在容量变化后，是否仍然可以检索到相同的缓存提示。"
+msgstr "容量变化后是否仍然可以检索到相同的缓存提示。"
 
 #: ../../source/kv_cache/storage_backends/dax.rst:190
 msgid "Using The Batched Restore Path"

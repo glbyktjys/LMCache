@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LMCache \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-17 02:35+0000\n"
+"POT-Creation-Date: 2026-06-22 14:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -37,26 +37,26 @@ msgstr "CLI 使用显式命令注册："
 
 #: ../../source/developer_guide/cli.rst:11
 msgid "Each command is a class inheriting from ``BaseCommand``."
-msgstr "每个命令都是一个继承自 ``BaseCommand`` 的类。"
+msgstr "每个命令都是继承自 ``BaseCommand`` 的类。"
 
 #: ../../source/developer_guide/cli.rst:12
 msgid ""
 "Commands are instantiated and listed in a central ``ALL_COMMANDS`` "
 "registry."
-msgstr "命令在中央 ``ALL_COMMANDS`` 注册表中被实例化和列出。"
+msgstr "命令被实例化并列在一个中心的 ``ALL_COMMANDS`` 注册表中。"
 
 #: ../../source/developer_guide/cli.rst:13
 msgid ""
 "At startup, the entry point iterates ``ALL_COMMANDS`` and calls "
 "``cmd.register(subparsers)`` to wire up argparse."
-msgstr "在启动时，入口点迭代 ``ALL_COMMANDS`` 并调用 ``cmd.register(subparsers)`` 来连接 argparse。"
+msgstr "在启动时，入口点会遍历 ``ALL_COMMANDS`` 并调用 ``cmd.register(subparsers)`` 来连接 argparse。"
 
 #: ../../source/developer_guide/cli.rst:16
 msgid ""
 "``BaseCommand`` is an abstract class with a small set of required methods"
 " (name, help, argument registration, and execute). Forgetting any of them"
 " raises ``TypeError`` at instantiation time."
-msgstr "``BaseCommand`` 是一个抽象类，具有一小组必需的方法（名称、帮助、参数注册和执行）。忘记其中任何一个在实例化时会引发 ``TypeError``。"
+msgstr "``BaseCommand`` 是一个抽象类，包含一小组必需的方法（名称、帮助、参数注册和执行）。如果遗漏任何一个，在实例化时会引发 ``TypeError``。"
 
 #: ../../source/developer_guide/cli.rst:21
 msgid "Step-by-Step: Adding a New Command"
@@ -64,7 +64,7 @@ msgstr "逐步指南：添加新命令"
 
 #: ../../source/developer_guide/cli.rst:23
 msgid "**Step 1.** Create a new command class that subclasses ``BaseCommand``:"
-msgstr "**步骤 1.** 创建一个新的命令类，继承 ``BaseCommand``："
+msgstr "**步骤 1.** 创建一个继承自 ``BaseCommand`` 的新命令类："
 
 #: ../../source/developer_guide/cli.rst:51
 msgid "**Step 2.** Add an instance of it to the ``ALL_COMMANDS`` registry:"
